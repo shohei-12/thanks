@@ -47,4 +47,9 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :test do
+  gem 'capybara'
+  gem 'selenium-webdriver', '~> 4.0.0.alpha6'
+end
+
 gem 'rails-i18n', '~> 6.0.0'
