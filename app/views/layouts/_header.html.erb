@@ -1,0 +1,7 @@
+<header>
+  <% if logged_in? %>
+    <%= link_to 'ログアウト', logout_path, method: :delete %>
+  <% else %>
+    <%= link_to 'ログイン', login_path %>
+  <% end %>
+</header>
