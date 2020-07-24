@@ -13,6 +13,13 @@ class SessionsController < ApplicationController
     end
   end
 
+  def guest
+    @user = User.find_by(email: 'guest@gmail.com')
+    log_in @user
+    flash[:success] = 'ログインしました！'
+    redirect_to @user
+  end
+
   def destroy
     log_out if logged_in?
   end
