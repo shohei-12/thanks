@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
 
+  has_many :posts, dependent: :destroy
+
   # validations
   validates :name, presence: true, length: { maximum: 50 }
   validates :email,
