@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   post '/guest_login', to: 'sessions#guest'
   delete '/logout', to: 'sessions#destroy'
   resources :users
+  resources :posts
 end
