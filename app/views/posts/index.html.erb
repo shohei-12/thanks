@@ -1,0 +1,9 @@
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <p><%= post.user.name %></p>
+      <p><%= post.title %></p>
+      <p><%= post.content %></p>
+    </li>
+  <% end %>
+</ul>
