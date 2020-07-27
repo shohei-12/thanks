@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :check_login, only: %i[new create show edit update delete]
-  before_action :check_user, only: %i[edit update delete]
+  before_action :check_login, only: %i[new create show edit update destroy]
+  before_action :check_user, only: %i[edit update destroy]
 
   def new
     @post = current_user.posts.build
