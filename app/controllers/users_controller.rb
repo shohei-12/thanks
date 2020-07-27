@@ -56,11 +56,6 @@ class UsersController < ApplicationController
 
   # before action
 
-  # Check user is logged in
-  def check_login
-    redirect_to login_path unless logged_in?
-  end
-
   # Check user is self
   def check_user
     @user = User.find(params[:id])

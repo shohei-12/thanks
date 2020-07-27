@@ -5,3 +5,7 @@
       <p><%= @post.content %></p>
     </li>
 </ul>
+
+<% if current_user?(@post.user) %>
+  <%= link_to '削除する', @post, method: :delete, data: { confirm: '本当に削除しますか？' } %>
+<% end %>
