@@ -49,6 +49,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'rack_session_access'
   gem 'selenium-webdriver', '~> 4.0.0.alpha6'
 end
 

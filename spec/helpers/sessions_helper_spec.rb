@@ -52,6 +52,22 @@ RSpec.describe SessionsHelper, type: :helper do
     end
   end
 
+  describe '#current_user?(user)' do
+    context 'when the given user is logged in' do
+      before { log_in(test1) }
+
+      it 'return true' do
+        expect(current_user?(test1)).to eq true
+      end
+    end
+
+    context 'when the given user is not logged in' do
+      it 'return false' do
+        expect(current_user?(test1)).to eq false
+      end
+    end
+  end
+
   describe '#log_out' do
     context 'when the user is logged in' do
       before { remember test1 }

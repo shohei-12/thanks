@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :check_login, only: %i[show edit update]
+  before_action :check_user, only: %i[edit update]
+
   def new
     @user = User.new
   end
@@ -49,5 +52,18 @@ class UsersController < ApplicationController
       :password,
       :password_confirmation
     )
+  end
+
+  # before action
+
+  # Check user is logged in
+  def check_login
+    redirect_to login_path unless logged_in?
+  end
+
+  # Check user is self
+  def check_user
+    @user = User.find(params[:id])
+    redirect_to root_path unless current_user?(@user)
   end
 end
