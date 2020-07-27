@@ -22,6 +22,11 @@ module SessionsHelper
     end
   end
 
+  # Returns true if the given user is logged in
+  def current_user?(user)
+    user && user == current_user
+  end
+
   # Log out the current user
   def log_out
     forget(current_user)
