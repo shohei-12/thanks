@@ -1,4 +1,5 @@
 <p><%= @user.name %></p>
+
 <ul>
   <% @posts.each do |post| %>
     <li>
@@ -6,3 +7,7 @@
     </li>
   <% end %>
 </ul>
+
+<div class="follow-unfollow-btn">
+  <%= render 'relationships/follow_unfollow_btn', user: @user %>
+</div>
