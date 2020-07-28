@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   let(:test1) { build(:test1) }
+  let(:test2) { build(:test2) }
+  let(:test3) { create(:test1) }
+  let(:test4) { create(:test2) }
 
   describe 'test1' do
     context 'when test1 is a valid user' do
@@ -178,6 +181,85 @@ RSpec.describe User, type: :model do
       test1.remember
       test1.forget
       expect(test1.remember_digest).to eq nil
+    end
+  end
+
+  describe '#follow(user)' do
+    context 'when user is exist' do
+      context 'when user is other user' do
+        it 'follow a user' do
+          test3.follow(test4)
+          relationship = Relationship.first
+          expect(relationship.user_id).to eq test3.id
+          expect(relationship.follow_id).to eq test4.id
+        end
+      end
+
+      context 'when user is own' do
+        it 'return nil' do
+          expect(test3.follow(test3)).to eq nil
+        end
+      end
+    end
+
+    context 'when user is not exist' do
+      it 'raises NoMethodError' do
+        test3.follow(nil)
+      rescue StandardError
+      end
+    end
+  end
+
+  describe '#unfollow(user)' do
+    context 'when user is exist' do
+      context 'when following a user' do
+        before do
+          test3.follow(test4)
+          expect(Relationship.count).to eq 1
+        end
+
+        it 'unfollow a user' do
+          test3.unfollow(test4)
+          expect(Relationship.count).to eq 0
+        end
+      end
+
+      context 'when not following a user' do
+        it 'return nil' do
+          expect(test3.unfollow(test4)).to eq nil
+        end
+      end
+    end
+
+    context 'when user is not exist' do
+      it 'raises NoMethodError' do
+        test3.unfollow(nil)
+      rescue StandardError
+      end
+    end
+  end
+
+  describe '#following?(user)' do
+    context 'when user is exist' do
+      context 'when following a user' do
+        before { test3.follow(test4) }
+
+        it 'return true' do
+          expect(test3.following?(test4)).to eq true
+        end
+      end
+
+      context 'when not following a user' do
+        it 'return false' do
+          expect(test3.following?(test4)).to eq false
+        end
+      end
+    end
+
+    context 'when user is not exist' do
+      it 'return false' do
+        expect(test3.following?(nil)).to eq false
+      end
     end
   end
 end
