@@ -1,5 +1,6 @@
 <% if comment.valid? %>
   <li>
     <p><%= comment.content %></p>
+    <%= link_to '削除する', comment, method: :delete, data: { confirm: '本当に削除しますか？' }, remote: true %>
   </li>
 <% end %>
