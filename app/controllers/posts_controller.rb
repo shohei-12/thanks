@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :check_login, only: %i[new create show edit update destroy]
-  before_action :check_user, only: %i[edit update destroy]
+  before_action :check_contributor, only: %i[edit update destroy]
 
   def new
     @post = current_user.posts.build
@@ -50,8 +50,8 @@ class PostsController < ApplicationController
 
   # before action
 
-  # Check user is self
-  def check_user
+  # Check contributor is self
+  def check_contributor
     @post = Post.find(params[:id])
     redirect_to root_path unless current_user?(@post.user)
   end
