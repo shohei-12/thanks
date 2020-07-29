@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :users
   resources :posts, except: %i[index]
   resources :relationships, only: %i[create destroy]
+  resources :comments, only: %i[create destroy]
 end

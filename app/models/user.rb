@@ -4,6 +4,9 @@ class User < ApplicationRecord
   # Post model
   has_many :posts, dependent: :destroy
 
+  # Comment model
+  has_many :comments, dependent: :destroy
+
   # Relationship model
   has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow
