@@ -9,3 +9,24 @@
 <% if current_user?(@post.user) %>
   <%= link_to '削除する', @post, method: :delete, data: { confirm: '本当に削除しますか？' } %>
 <% end %>
+
+<%= form_with(model: @comment) do |f| %>
+  <div class="error-messages"></div>
+
+  <%= f.hidden_field :post_id, value: @post.id %>
+
+  <%= f.label :content, "コメント（400文字以内）" %>
+  <%= f.text_area :content %>
+
+  <%= f.submit 'コメントする' %>
+<% end %>
+
+<div class="comments">
+  <ul>
+    <% Comment.all.order(created_at: :desc).each do |comment| %>
+      <li>
+        <p><%= comment.content %></p>
+      </li>
+    <% end %>
+  </ul>
+</div>
