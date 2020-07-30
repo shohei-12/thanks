@@ -3,6 +3,11 @@
       <p><%= @post.user.name %></p>
       <p><%= @post.title %></p>
       <p><%= @post.content %></p>
+      <% if logged_in? %>
+        <div id="post-like-<%= @post.id %>">
+          <%= render 'likes/post_like', post: @post %>
+        </div>
+      <% end %>
     </li>
 </ul>
 
@@ -28,6 +33,11 @@
         <p><%= comment.content %></p>
         <% if current_user?(comment.user) %>
           <%= link_to '削除する', comment, method: :delete, data: { confirm: '本当に削除しますか？' }, remote: true %>
+        <% end %>
+        <% if logged_in? %>
+          <div id="comment-like-<%= comment.id %>">
+            <%= render 'likes/comment_like', comment: comment %>
+          </div>
         <% end %>
       </li>
     <% end %>

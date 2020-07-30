@@ -2,5 +2,8 @@
   <li id="comment-<%= comment.id %>">
     <p><%= comment.content %></p>
     <%= link_to '削除する', comment, method: :delete, data: { confirm: '本当に削除しますか？' }, remote: true %>
+    <div id="comment-like-<%= comment.id %>">
+      <%= render 'likes/comment_like', comment: comment %>
+    </div>
   </li>
 <% end %>
