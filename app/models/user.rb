@@ -7,6 +7,11 @@ class User < ApplicationRecord
   # Comment model
   has_many :comments, dependent: :destroy
 
+  # Like model
+  has_many :likes, dependent: :destroy
+  has_many :like_posts, through: :likes, source: :post
+  has_many :like_comments, through: :likes, source: :comment
+
   # Relationship model
   has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow

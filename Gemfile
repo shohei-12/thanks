@@ -53,4 +53,5 @@ group :test do
   gem 'selenium-webdriver', '~> 4.0.0.alpha6'
 end
 
+gem 'font-awesome-sass'
 gem 'rails-i18n', '~> 6.0.0'
