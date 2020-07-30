@@ -53,7 +53,7 @@ RSpec.describe User, type: :model do
       end
 
       context 'when email is over 256 characters' do
-        before { test1.email = 'a' * 247 + '@gmail.com' }
+        before { test1.email = 'a' * 247 + '@example.com' }
 
         it 'return false' do
           expect(test1.valid?).to eq false
@@ -63,11 +63,11 @@ RSpec.describe User, type: :model do
       context 'when email is an invalid format' do
         it 'return false' do
           [
-            'user＠gmail.com',
-            'usergmail.com',
-            'user@gmail..com',
-            'user@.gmail.com',
-            'user@gmail.com-'
+            'user＠example.com',
+            'userexample.com',
+            'user@example..com',
+            'user@.example.com',
+            'user@example.com-'
           ].each do |invalid_email|
             test1.email = invalid_email
             expect(test1.valid?).to eq false

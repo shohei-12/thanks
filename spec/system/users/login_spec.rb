@@ -20,7 +20,7 @@ RSpec.describe 'UsersLogin', type: :system do
 
   context 'when login information is incorrect' do
     it 'not log in' do
-      fill_in 'メールアドレス', with: 'incorrect@gmail.com'
+      fill_in 'メールアドレス', with: 'incorrect@example.com'
       fill_in 'パスワード', with: 'password'
       click_button 'ログインする'
       is_expected.to have_css '.danger-message'
