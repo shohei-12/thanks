@@ -2,6 +2,9 @@ class Post < ApplicationRecord
   # User model
   belongs_to :user
 
+  # Category model
+  belongs_to :category
+
   # Comment model
   has_many :comments, dependent: :destroy
 

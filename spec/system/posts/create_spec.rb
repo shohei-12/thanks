@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'PostsCreate', type: :system do
-  before { @test1 = create(:test1) }
+  before do
+    @test1 = create(:test1)
+    create(:category1)
+  end
 
   subject { page }
 
@@ -14,6 +17,7 @@ RSpec.describe 'PostsCreate', type: :system do
     context 'when post information is valid' do
       it 'create a post' do
         fill_in 'タイトル（50文字以内）', with: 'test'
+        select 'お父さん・お母さん', from: 'post_category_id'
         fill_in '内容（400文字以内）', with: 'testです。'
         expect { click_button '投稿する' }.to change(Post, :count).by(1)
       end
@@ -22,6 +26,7 @@ RSpec.describe 'PostsCreate', type: :system do
     context 'when post information is invalid' do
       it 'do not create a post' do
         fill_in 'タイトル（50文字以内）', with: ''
+        select 'お父さん・お母さん', from: 'post_category_id'
         fill_in '内容（400文字以内）', with: ''
         expect { click_button '投稿する' }.to change(Post, :count).by(0)
         is_expected.to have_css '.error-messages'

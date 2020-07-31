@@ -1,8 +1,1 @@
-<ul>
-  <% @posts.each do |post| %>
-    <li>
-      <p><%= post.user.name %></p>
-      <p><%= link_to post.title, post_path(post.id) %></p>
-    </li>
-  <% end %>
-</ul>
+<%= render 'list' %>

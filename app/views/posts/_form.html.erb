@@ -4,6 +4,9 @@
   <%= f.label :title, "タイトル（50文字以内）" %>
   <%= f.text_field :title %>
 
+  <%= f.label :category_id, "誰に対して感謝を伝えたいですか？" %>
+  <%= f.collection_select :category_id, Category.all, :id, :name %>
+
   <%= f.label :content, "内容（400文字以内）" %>
   <%= f.text_area :content %>
 

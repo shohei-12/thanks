@@ -2,6 +2,7 @@
     <li>
       <p><%= @post.user.name %></p>
       <p><%= @post.title %></p>
+      <p><%= link_to @post.category.name, posts_category_path(@post.category) %></p>
       <p><%= @post.content %></p>
       <% if logged_in? %>
         <div id="post-like-<%= @post.id %>">
