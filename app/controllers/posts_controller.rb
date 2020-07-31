@@ -19,6 +19,11 @@ class PostsController < ApplicationController
     @posts = Post.all.order(created_at: :desc)
   end
 
+  def category
+    @category = Category.find(params[:id])
+    @posts = @category.posts.order(created_at: :desc)
+  end
+
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
@@ -44,7 +49,8 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(
       :title,
-      :content
+      :content,
+      :category_id
     )
   end
 

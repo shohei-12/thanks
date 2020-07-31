@@ -4,6 +4,7 @@ ja:
       user: ユーザー
       post: 投稿
       comment: コメント
+      category: カテゴリー
     attributes:
       user:
         name: ユーザー名
@@ -13,5 +14,6 @@ ja:
       post:
         title: タイトル
         content: 内容
+        category_id: カテゴリー
       comment:
         content: コメント
