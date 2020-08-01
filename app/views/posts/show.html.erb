@@ -29,7 +29,7 @@
 
 <div class="comments">
   <ul>
-    <% Comment.all.order(created_at: :desc).each do |comment| %>
+    <% @post.comments.order(created_at: :desc).each do |comment| %>
       <li id="comment-<%= comment.id %>">
         <p><%= comment.content %></p>
         <% if current_user?(comment.user) %>
