@@ -18,3 +18,12 @@ import "materialize-css/dist/js/materialize";
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+document.addEventListener(
+  "turbolinks:load",
+  // header
+  function () {
+    $(".dropdown-trigger").dropdown();
+  },
+  false
+);
