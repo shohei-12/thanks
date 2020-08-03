@@ -17,6 +17,12 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
 header {
   .close-icon {
     margin: 1rem 0;
@@ -26,5 +32,16 @@ header {
   .dropdown-content li:hover,
   .dropdown-content li.active {
     background-color: rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer.page-footer {
+  padding: 0;
+  .footer-copyright {
+    justify-content: center !important;
   }
 }
