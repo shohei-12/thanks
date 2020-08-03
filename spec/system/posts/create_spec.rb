@@ -27,7 +27,7 @@ RSpec.describe 'PostsCreate', type: :system do
         select 'お父さん・お母さん', from: 'post_category_id'
         fill_in '内容（400文字以内）', with: ''
         expect { click_button '投稿する' }.to change(Post, :count).by(0)
-        # expect(page).to have_css '.error-message'
+        expect(page).to have_css '.error-message'
       end
     end
   end
