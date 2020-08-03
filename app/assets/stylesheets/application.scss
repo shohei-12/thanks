@@ -16,3 +16,15 @@
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+header {
+  .close-icon {
+    margin: 1rem 0;
+    color: rgb(66, 66, 66);
+    padding-left: 17rem;
+  }
+  .dropdown-content li:hover,
+  .dropdown-content li.active {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+  }
+}
