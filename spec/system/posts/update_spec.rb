@@ -13,7 +13,7 @@ RSpec.describe 'PostsUpdate', type: :system do
       it 'update a post information' do
         fill_in 'タイトル（50文字以内）', with: 'テスト'
         fill_in '内容（400文字以内）', with: 'テストです。'
-        click_button '変更する'
+        click_button '更新する'
         @post1.reload
         expect(@post1.title).to eq 'テスト'
         expect(@post1.content).to eq 'テストです。'
@@ -24,7 +24,7 @@ RSpec.describe 'PostsUpdate', type: :system do
       it 'do not update a post information' do
         fill_in 'タイトル（50文字以内）', with: ''
         fill_in '内容（400文字以内）', with: ''
-        click_button '変更する'
+        click_button '更新する'
         @post1.reload
         expect(@post1.title).to eq @post1.title
         expect(@post1.content).to eq @post1.content
