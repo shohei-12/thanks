@@ -4,7 +4,6 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start();
-require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
 require("jquery");
@@ -19,11 +18,12 @@ import "materialize-css/dist/js/materialize";
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-document.addEventListener(
-  "turbolinks:load",
+$(function () {
   // header
-  function () {
-    $(".dropdown-trigger").dropdown();
-  },
-  false
-);
+  $(".dropdown-trigger").dropdown();
+
+  // hamburger menu
+  $(".sidenav").sidenav({
+    edge: "right",
+  });
+});

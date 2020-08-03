@@ -1,16 +1,36 @@
 <header>
   <!-- Dropdown Structure -->
-  <ul id="dropdown1" class="dropdown-content">
-    <li><%= link_to '投稿する', new_post_path %></li>
-    <li class="divider"></li>
-    <li><%= link_to 'マイページ', current_user %></li>
-    <li class="divider"></li>
-    <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+  <ul id="dropdown1" class="dropdown-content green lighten-2">
+    <li><%= link_to '投稿する', new_post_path, class: 'white-text' %></li>
+    <li><%= link_to 'マイページ', current_user, class: 'white-text' %></li>
+    <li><%= link_to 'ログアウト', logout_path, method: :delete, class: 'white-text' %></li>
   </ul>
+
+  <ul class="sidenav" id="mobile-links">
+    <!-- close button -->
+    <a href="#" class="sidenav-close" data-target="mobile-links">
+      <i class="material-icons close-icon">close</i>
+    </a>
+    <% if logged_in? %>
+      <li><%= link_to 'みんなの投稿', root_path %></li>
+      <li><%= link_to '投稿する', new_post_path %></li>
+      <li><%= link_to 'マイページ', current_user %></li>
+      <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to 'みんなの投稿', root_path %></li>
+      <li><%= link_to '登録する', new_user_path %></li>
+      <li><%= link_to 'ログインする', login_path %></li>
+    <% end %>
+  </ul>
+
   <div class="navbar-fixed">
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper green lighten-2">
         <%= link_to 'THANKS', root_path, class: 'brand-logo' %>
+        <!-- open button -->
+        <a href="#" class="sidenav-trigger right" data-target="mobile-links">
+          <i class="material-icons">menu</i>
+        </a>
         <ul class="right hide-on-med-and-down">
           <% if logged_in? %>
             <li><%= link_to 'みんなの投稿', root_path %></li>
