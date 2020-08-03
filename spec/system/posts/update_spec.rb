@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.describe 'PostsUpdate', type: :system do
   before { @post1 = create(:post1) }
 
-  subject { page }
-
   context 'when the user is logged in' do
     before do
       log_in(@post1.user)
@@ -30,7 +28,7 @@ RSpec.describe 'PostsUpdate', type: :system do
         @post1.reload
         expect(@post1.title).to eq @post1.title
         expect(@post1.content).to eq @post1.content
-        is_expected.to have_css '.error-messages'
+        # expect(page).to have_css '.error-message'
       end
     end
   end
@@ -38,7 +36,7 @@ RSpec.describe 'PostsUpdate', type: :system do
   context 'when the user is not logged in' do
     it 'cannot access post edit page' do
       visit edit_post_path(@post1)
-      is_expected.to have_current_path login_path
+      expect(page).to have_current_path login_path
     end
   end
 end

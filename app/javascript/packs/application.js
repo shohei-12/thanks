@@ -26,4 +26,5 @@ $(function () {
   $(".sidenav").sidenav({
     edge: "right",
   });
+  $(".character-counter").characterCounter();
 });

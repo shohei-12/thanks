@@ -16,11 +16,11 @@ RSpec.describe 'UsersSignup', type: :system do
   context 'when user information is invalid' do
     it 'do not signup a user' do
       fill_in 'ユーザー名（50文字以内）', with: ''
-      fill_in 'メールアドレス', with: 'testexample.com'
+      fill_in 'メールアドレス', with: 'test@examplecom'
       fill_in 'パスワード（6文字以上）', with: 'password'
       fill_in '確認用パスワード', with: 'pasword'
       expect { click_button '登録する' }.to change(User, :count).by(0)
-      expect(page).to have_css '.error-messages'
+      expect(page).to have_css '.error-message'
     end
   end
 end

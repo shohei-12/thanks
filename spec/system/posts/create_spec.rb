@@ -6,8 +6,6 @@ RSpec.describe 'PostsCreate', type: :system do
     create(:category1)
   end
 
-  subject { page }
-
   context 'when the user is logged in' do
     before do
       log_in(@test1)
@@ -29,7 +27,7 @@ RSpec.describe 'PostsCreate', type: :system do
         select 'お父さん・お母さん', from: 'post_category_id'
         fill_in '内容（400文字以内）', with: ''
         expect { click_button '投稿する' }.to change(Post, :count).by(0)
-        is_expected.to have_css '.error-messages'
+        # expect(page).to have_css '.error-message'
       end
     end
   end
@@ -37,7 +35,7 @@ RSpec.describe 'PostsCreate', type: :system do
   context 'when the user is not logged in' do
     it 'cannot access post create page' do
       visit new_post_path
-      is_expected.to have_current_path login_path
+      expect(page).to have_current_path login_path
     end
   end
 end

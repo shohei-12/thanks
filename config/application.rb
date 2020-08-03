@@ -34,5 +34,6 @@ module Thanks
 
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
+    config.action_view.field_error_proc = proc { |html_tag, _instance| html_tag }
   end
 end
