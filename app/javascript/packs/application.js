@@ -27,4 +27,5 @@ $(function () {
     edge: "right",
   });
   $(".character-counter").characterCounter();
+  $("select").formSelect();
 });

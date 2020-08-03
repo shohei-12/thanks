@@ -28,7 +28,7 @@ RSpec.describe 'PostsUpdate', type: :system do
         @post1.reload
         expect(@post1.title).to eq @post1.title
         expect(@post1.content).to eq @post1.content
-        # expect(page).to have_css '.error-message'
+        expect(page).to have_css '.error-message'
       end
     end
   end
