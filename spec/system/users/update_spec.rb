@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.describe 'UsersUpdate', type: :system do
   before { @test1 = create(:test1) }
 
-  subject { page }
-
   context 'when the user is logged in' do
     before do
       log_in(@test1)
@@ -17,7 +15,7 @@ RSpec.describe 'UsersUpdate', type: :system do
         fill_in 'メールアドレス', with: 'test1-update@example.com'
         fill_in 'パスワード（6文字以上）', with: 'foobar'
         fill_in '確認用パスワード', with: 'foobar'
-        click_button '登録する'
+        click_button '更新する'
         @test1.reload
         expect(@test1.name).to eq 'test1-update'
         expect(@test1.email).to eq 'test1-update@example.com'
@@ -31,12 +29,12 @@ RSpec.describe 'UsersUpdate', type: :system do
         fill_in 'メールアドレス', with: 'testexample.com'
         fill_in 'パスワード（6文字以上）', with: 'hoge'
         fill_in '確認用パスワード', with: 'hoge'
-        click_button '登録する'
+        click_button '更新する'
         @test1.reload
         expect(@test1.name).to eq 'test1'
         expect(@test1.email).to eq 'test1@example.com'
         expect(@test1.authenticate('password')).to be_truthy
-        is_expected.to have_css '.error-messages'
+        expect(page).to have_css '.error-message'
       end
     end
   end
@@ -44,7 +42,7 @@ RSpec.describe 'UsersUpdate', type: :system do
   context 'when the user is not logged in' do
     it 'cannot access edit page' do
       visit edit_user_path(@test1)
-      is_expected.to have_current_path login_path
+      expect(page).to have_current_path login_path
     end
   end
 end
