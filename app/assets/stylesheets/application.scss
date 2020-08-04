@@ -64,6 +64,9 @@ footer.page-footer {
   }
 }
 
-.pagination li.active {
-  background-color: #26a69a !important;
+.pagination {
+  text-align: center;
+  li.active {
+    background-color: #26a69a !important;
+  }
 }
