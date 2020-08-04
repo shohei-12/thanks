@@ -16,17 +16,18 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.page(params[:page]).per(20).order(created_at: :desc)
   end
 
   def category
     @category = Category.find(params[:id])
-    @posts = @category.posts.order(created_at: :desc)
+    @posts = @category.posts.page(params[:page]).per(20).order(created_at: :desc)
   end
 
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
+    @comments = @post.comments.page(params[:page]).per(20).order(created_at: :desc)
   end
 
   def edit; end

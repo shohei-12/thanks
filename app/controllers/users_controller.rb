@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.order(created_at: :desc)
+    @posts = @user.posts.page(params[:page]).per(20).order(created_at: :desc)
   end
 
   def edit
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.page(params[:page]).per(20).order(created_at: :desc)
   end
 
   def destroy
