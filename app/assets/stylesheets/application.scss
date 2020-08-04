@@ -51,6 +51,15 @@ footer.page-footer {
   }
 }
 
-.error-message {
+.error-message,
+.danger-message {
   color: #ef5350;
+}
+
+.easy-login {
+  margin-top: 40px;
+  background-color: #f4511e !important;
+  &:hover {
+    background-color: #ff5722 !important;
+  }
 }

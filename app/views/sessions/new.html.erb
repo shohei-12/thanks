@@ -1,14 +1,32 @@
+<h1>ログイン</h1>
+
 <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
-  <%= f.label :email, "メールアドレス" %>
-  <%= f.email_field :email %>
-
-  <%= f.label :password, "パスワード" %>
-  <%= f.password_field :password %>
-
-  <%= f.check_box :remember_me %>
-  <span>ログイン状態を保存する</span>
-
-  <%= f.submit 'ログインする' %>
+  <div class="row">
+    <div class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">email</i>
+          <%= f.email_field :email %>
+          <%= f.label :email, "メールアドレス" %>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">lock</i>
+          <%= f.password_field :password %>
+          <%= f.label :password, "パスワード" %>
+        </div>
+        <div class="input-field col s12">
+          <label>
+            <%= f.check_box :remember_me %>
+            <span>ログイン状態を保存する</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="btn waves-effect waves-light" type="submit" name="action">
+    ログインする
+    <i class="material-icons right">send</i>
+  </button>
 <% end %>
 
-<%= link_to 'かんたんログイン', guest_login_path, method: :post %>
+<%= link_to 'かんたんログイン', guest_login_path, method: :post, class: 'waves-effect waves-light btn easy-login' %>
