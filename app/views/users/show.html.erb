@@ -4,12 +4,19 @@
   <%= render 'relationships/follow_unfollow_btn', user: @user %>
 </div>
 
-<ul>
+<div class="row">
   <% @posts.each do |post| %>
-    <li>
-      <p><%= link_to post.title, post_path(post.id) %></p>
-    </li>
+    <div class="col s12 m6 l4 xl3">
+      <div class="card center-align">
+        <div class="card-image">
+          <%= image_tag 'spring.jpg', alt: '画像' %>
+        </div>
+        <div class="card-content">
+          <p><%= link_to post.title, post %></p>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
 
 <%= paginate @posts %>
