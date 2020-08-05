@@ -1,46 +1,9 @@
-<ul>
-    <li>
-      <p><%= @post.user.name %></p>
-      <p><%= @post.title %></p>
-      <p><%= link_to @post.category.name, posts_category_path(@post.category) %></p>
-      <p><%= @post.content %></p>
-      <% if logged_in? %>
-        <div id="post-like-<%= @post.id %>">
-          <%= render 'likes/post_like', post: @post %>
-        </div>
-      <% end %>
-    </li>
-</ul>
+<%= render 'post_detail' %>
 
 <% if current_user?(@post.user) %>
   <%= link_to '削除する', @post, method: :delete, data: { confirm: '本当に削除しますか？' } %>
 <% end %>
 
-<%= form_with(model: @comment) do |f| %>
-  <div class="error-messages"></div>
+<%= render 'comment_form' %>
 
-  <%= f.hidden_field :post_id, value: @post.id %>
-
-  <%= f.label :content, "コメント（400文字以内）" %>
-  <%= f.text_area :content %>
-
-  <%= f.submit 'コメントする' %>
-<% end %>
-
-<div class="comments">
-  <ul>
-    <% @comments.each do |comment| %>
-      <li id="comment-<%= comment.id %>">
-        <p><%= comment.content %></p>
-        <% if current_user?(comment.user) %>
-          <%= link_to '削除する', comment, method: :delete, data: { confirm: '本当に削除しますか？' }, remote: true %>
-        <% end %>
-        <div id="comment-like-<%= comment.id %>">
-          <%= render 'likes/comment_like', comment: comment %>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-
-  <%= paginate @comments %>
-</div>
+<%= render 'comment_list' %>

@@ -1,0 +1,17 @@
+<div class="comments">
+  <ul>
+    <% @comments.each do |comment| %>
+      <li id="comment-<%= comment.id %>">
+        <p><%= comment.content %></p>
+        <% if current_user?(comment.user) %>
+          <%= link_to '削除する', comment, method: :delete, data: { confirm: '本当に削除しますか？' }, remote: true %>
+        <% end %>
+        <div id="comment-like-<%= comment.id %>">
+          <%= render 'likes/comment_like', comment: comment %>
+        </div>
+        <div class="divider"></div>
+      </li>
+    <% end %>
+  </ul>
+  <%= paginate @comments %>
+</div>
