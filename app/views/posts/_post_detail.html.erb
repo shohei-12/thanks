@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col s12 m6 l4 xl3">
+    <div class="card center-align">
+      <div class="card-image">
+        <%= image_tag 'spring.jpg', alt: '画像' %>
+      </div>
+      <div class="card-content">
+        <p><%= @post.user.name %></p>
+        <p><%= @post.title %></p>
+        <p><%= link_to @post.category.name, posts_category_path(@post.category) %></p>
+        <p><%= @post.content %></p>
+        <div id="post-like-<%= @post.id %>">
+          <%= render 'likes/post_like', post: @post %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
