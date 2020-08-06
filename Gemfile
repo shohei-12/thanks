@@ -51,6 +51,7 @@ group :test do
   gem 'selenium-webdriver', '~> 4.0.0.alpha6'
 end
 
+gem 'carrierwave', '~> 2.0'
 gem 'font-awesome-sass'
 gem 'gimei'
 gem 'kaminari'

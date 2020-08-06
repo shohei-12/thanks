@@ -1,3 +1,9 @@
+<% if @user.image? %>
+  <%= image_tag @user.image.url, alt: 'アイコン画像' %>
+<% else %>
+  <img alt="アイコン画像" src="/assets/default.png" width="150" height="150">
+<% end %>
+
 <p><%= @user.name %></p>
 
 <div class="follow-unfollow-btn">

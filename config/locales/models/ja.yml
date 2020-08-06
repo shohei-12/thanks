@@ -10,6 +10,7 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: 確認用パスワード
+        image: 画像
       post:
         title: タイトル
         content: 内容
