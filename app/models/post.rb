@@ -15,4 +15,9 @@ class Post < ApplicationRecord
   # validations
   validates :title, presence: true, length: { maximum: 50 }
   validates :content, presence: true, length: { maximum: 400 }
+
+  # Get 10 popular posts
+  def self.popular
+    Post.find(Like.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
+  end
 end

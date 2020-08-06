@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/guest_login', to: 'sessions#guest'
   delete '/logout', to: 'sessions#destroy'
   get '/posts/category/:id', to: 'posts#category', as: 'posts_category'
+  get '/posts/popular', to: 'posts#popular', as: 'popular_posts'
   post '/post/like/:id', to: 'likes#post_create', as: 'post_like'
   delete '/post/unlike/:id', to: 'likes#post_destroy', as: 'post_unlike'
   post '/comment/like/:id', to: 'likes#comment_create', as: 'comment_like'
