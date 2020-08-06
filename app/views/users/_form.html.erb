@@ -2,6 +2,20 @@
   <div class="row">
     <div class="col s12">
       <div class="row">
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>アイコン画像</span>
+            <%= f.file_field :image %>
+            <%= f.hidden_field :image_cache %>
+          </div>
+          <div class="file-path-wrapper">
+            <%= image_tag @user.image.url, alt: 'アイコン画像' if @user.image? %>
+            <input class="file-path validate" type="text">
+            <% if @user.errors.include?(:image) %>
+              <p class="error-message"><%= @user.errors.full_messages_for(:image).first %></p>
+            <% end %>
+          </div>
+        </div>
         <div class="input-field col s12">
           <i class="material-icons prefix">person</i>
           <%= f.text_field :name, data: { length: '50' }, class: 'character-counter' %>

@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
 
+  # connecting image columns to the IconUploader class
+  mount_uploader :image, IconUploader
+
   # Post model
   has_many :posts, dependent: :destroy
 

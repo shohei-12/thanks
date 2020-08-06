@@ -51,7 +51,9 @@ class UsersController < ApplicationController
       :name,
       :email,
       :password,
-      :password_confirmation
+      :password_confirmation,
+      :image,
+      :image_cache
     )
   end
 
