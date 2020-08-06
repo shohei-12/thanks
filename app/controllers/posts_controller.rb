@@ -19,6 +19,10 @@ class PostsController < ApplicationController
     @posts = Post.page(params[:page]).per(20).order(created_at: :desc)
   end
 
+  def popular
+    @popular_posts = Post.popular
+  end
+
   def category
     @category = Category.find(params[:id])
     @posts = @category.posts.page(params[:page]).per(20).order(created_at: :desc)
