@@ -20,7 +20,11 @@ class PostsController < ApplicationController
   end
 
   def popular
-    @popular_posts = Post.popular
+    @posts = Post.popular
+  end
+
+  def search
+    @posts = Post.search(params[:search]).page(params[:page]).per(20).order(created_at: :desc)
   end
 
   def category

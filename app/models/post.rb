@@ -20,4 +20,9 @@ class Post < ApplicationRecord
   def self.popular
     Post.find(Like.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
   end
+
+  # Get posts containing keyword
+  def self.search(keyword)
+    Post.where('title LIKE ? OR content LIKE ?', "%#{keyword}%", "%#{keyword}%")
+  end
 end
