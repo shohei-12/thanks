@@ -1,4 +1,4 @@
-<div class="row" id="posts-display">
+<div class="row">
   <% @posts.each do |post| %>
     <div class="col s12 m6 l4 xl3">
       <div class="card center-align">
@@ -16,5 +16,3 @@
     </div>
   <% end %>
 </div>
-
-<%= paginate @posts %>
