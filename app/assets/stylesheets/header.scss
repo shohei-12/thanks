@@ -1,0 +1,107 @@
+/* Common Style */
+header {
+  width: 100%;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 2.4rem;
+  margin: 0;
+}
+
+header a {
+  color: #fff;
+}
+
+header nav a {
+  position: relative;
+  &:after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transform: scale(0, 1);
+    transition: transform 0.3s;
+  }
+  &:hover:after {
+    transform: scale(1, 1);
+  }
+}
+
+/* Smartphone and Tablet Style */
+@media all and (max-width: 768px) {
+  header .hamburger {
+    width: 36px;
+    height: 28px;
+    cursor: pointer;
+    z-index: 100;
+    transform: translateX(0);
+    span {
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      background-color: #fff;
+      transition: all 0.5s;
+      &:nth-of-type(1) {
+        top: 0;
+      }
+      &:nth-of-type(2) {
+        top: 12px;
+      }
+      &:nth-of-type(3) {
+        bottom: 0;
+      }
+    }
+  }
+
+  header .hamburger.open span {
+    &:nth-of-type(1) {
+      transform: translateY(12px) rotate(-45deg);
+    }
+    &:nth-of-type(2) {
+      opacity: 0;
+    }
+    &:nth-of-type(3) {
+      transform: translateY(-12px) rotate(45deg);
+    }
+  }
+
+  header nav {
+    width: 250px;
+    height: 100%;
+    padding-top: 100px;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    transform: translateX(250px);
+    transition: all 0.5s;
+    li {
+      text-align: center;
+      padding: 10px 0;
+    }
+  }
+
+  header nav.open {
+    transform: translateX(0);
+  }
+}
+
+/* PC Style */
+@media all and (min-width: 769px) {
+  header nav ul {
+    display: flex;
+    li {
+      margin-left: 15px;
+    }
+  }
+}
