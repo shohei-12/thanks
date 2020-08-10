@@ -17,56 +17,36 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
 body {
   display: flex;
-  min-height: 100vh;
   flex-direction: column;
+  min-height: 100vh;
+  font-size: 1.6em;
+  color: #333;
+  margin: 0;
 }
 
-h1 {
-  font-size: 2.3rem !important;
-}
-
-header {
-  .close-icon {
-    margin: 1rem 0;
-    color: rgb(66, 66, 66);
-    padding-left: 17rem;
-  }
-  .dropdown-content li:hover,
-  .dropdown-content li.active {
-    background-color: rgba(0, 0, 0, 0.1) !important;
-  }
-}
-
-main {
-  flex: 1 0 auto;
-  padding: 20px;
-}
-
-footer.page-footer {
+ul {
+  list-style: none;
+  margin: 0;
   padding: 0;
-  .footer-copyright {
-    justify-content: center !important;
-  }
 }
 
-.error-message,
-.danger-message {
-  color: #ef5350;
+a {
+  text-decoration: none;
 }
 
-.easy-login {
-  margin-top: 40px;
-  background-color: #f4511e !important;
-  &:hover {
-    background-color: #ff5722 !important;
-  }
-}
-
-.pagination {
-  text-align: center;
-  li.active {
-    background-color: #26a69a !important;
-  }
+header,
+footer {
+  background-color: #81c784;
 }
