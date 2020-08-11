@@ -1,6 +1,5 @@
 <%= form_with(model: @user, local: true) do |f| %>
   <div class="form-parts">
-    <%= icon('fas', 'file-image') %>
     <%= f.label :image, "アイコン画像" %>
     <span class="optional">任意</span>
     <%= f.file_field :image, accept: 'image/jpg, image/jpeg, image/png, image/gif' %>
@@ -12,7 +11,6 @@
   </div>
 
   <div class="form-parts">
-    <%= icon('fas', 'user') %>
     <%= f.label :name, "ユーザー名" %>
     <span class="required">必須</span>
     <%= f.text_field :name, required: true %>
@@ -22,7 +20,6 @@
   </div>
 
   <div class="form-parts">
-    <%= icon('fas', 'envelope') %>
     <%= f.label :email, "メールアドレス" %>
     <span class="required">必須</span>
     <%= f.email_field :email, required: true %>
@@ -32,7 +29,6 @@
   </div>
 
   <div class="form-parts">
-    <%= icon('fas', 'lock') %>
     <%= f.label :password, "パスワード" %>
     <span class="required">必須</span>
     <%= f.password_field :password, required: true %>
@@ -42,7 +38,6 @@
   </div>
 
   <div class="form-parts">
-    <%= icon('fas', 'lock') %>
     <%= f.label :password_confirmation, "確認用パスワード" %>
     <span class="required">必須</span>
     <%= f.password_field :password_confirmation, required: true %>
