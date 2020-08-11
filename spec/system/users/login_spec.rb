@@ -11,7 +11,7 @@ RSpec.describe 'UsersLogin', type: :system do
     it 'log in' do
       fill_in 'メールアドレス', with: test1.email
       fill_in 'パスワード', with: test1.password
-      click_button 'ログインする'
+      click_button 'ログイン'
       is_expected.to have_current_path user_path(test1)
       is_expected.to have_css '.success-message'
       is_expected.to have_link 'ログアウト', href: logout_path
@@ -22,7 +22,7 @@ RSpec.describe 'UsersLogin', type: :system do
     it 'not log in' do
       fill_in 'メールアドレス', with: 'incorrect@example.com'
       fill_in 'パスワード', with: 'password'
-      click_button 'ログインする'
+      click_button 'ログイン'
       is_expected.to have_css '.danger-message'
       is_expected.to have_link 'ログイン', href: login_path
     end
