@@ -2,13 +2,23 @@ form {
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
+  button.submit {
+    background-color: #4db6ac;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    &:focus {
+      outline: none;
+    }
+  }
 }
 
 .form-parts {
   width: 68%;
   margin: 0 auto 30px;
   text-align: left;
-  span {
+  span.required,
+  span.optional {
     color: #fff;
     font-size: 12px;
     padding: 5px;
@@ -20,7 +30,7 @@ form {
   span.optional {
     background-color: #424242;
   }
-  input {
+  input:not([type="checkbox"]) {
     width: 100%;
     padding: 15px;
     margin-top: 8px;
