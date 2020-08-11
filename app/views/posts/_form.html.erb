@@ -1,37 +1,44 @@
 <%= form_with(model: @post, local: true) do |f| %>
-  <div class="row">
-    <div class="col s12">
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">title</i>
-          <%= f.text_field :title, data: { length: '50' }, class: 'character-counter' %>
-          <%= f.label :title, "タイトル（50文字以内）" %>
-          <% if @post.errors.include?(:title) %>
-            <p class="error-message"><%= @post.errors.full_messages_for(:title).first %></p>
-          <% end %>
-        </div>
-        <div class="input-field col s12">
-          <i class="material-icons prefix">mood</i>
-          <%= f.collection_select :category_id, Category.all, :id, :name %>
-          <%= f.label :category_id, "誰に対して感謝を伝えたいですか？" %>
-          <% if @post.errors.include?(:category_id) %>
-            <p class="error-message"><%= @post.errors.full_messages_for(:category_id).first %></p>
-          <% end %>
-        </div>
-        <div class="input-field col s12">
-          <i class="material-icons prefix">notes</i>
-          <%= f.text_area :content, data: { length: '400' }, class: 'materialize-textarea character-counter' %>
-          <%= f.label :content, "内容（400文字以内）" %>
-          <% if @post.errors.include?(:content) %>
-            <p class="error-message"><%= @post.errors.full_messages_for(:content).first %></p>
-          <% end %>
-        </div>
-      </div>
-    </div>
+  <div class="form-parts">
+    <%= f.label :title, "タイトル" %>
+    <span class="required">必須</span>
+    <%= f.text_field :title, required: true %>
+    <% if @post.errors.include?(:title) %>
+      <p class="error-message"><%= @post.errors.full_messages_for(:title).first %></p>
+    <% end %>
   </div>
-  <button class="btn waves-effect waves-light" type="submit" name="action">
-    <%= yield(:button_text) %>
-    <i class="material-icons right">send</i>
-  </button>
-<% end %>
 
+  <div class="form-parts">
+    <%= f.label :category_id, "誰に対して感謝を伝えたいですか？" %>
+    <span class="required">必須</span>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+    <% if @post.errors.include?(:category_id) %>
+      <p class="error-message"><%= @post.errors.full_messages_for(:category_id).first %></p>
+    <% end %>
+  </div>
+
+  <div class="form-parts">
+    <%= f.label :content, "内容" %>
+    <span class="required">必須</span>
+    <%= f.text_area :content, required: true %>
+    <% if @post.errors.include?(:content) %>
+      <p class="error-message"><%= @post.errors.full_messages_for(:content).first %></p>
+    <% end %>
+  </div>
+
+  <div class="form-parts">
+    <%= f.label :check, "感謝の気持ちは伝えましたか？" %>
+    <span class="required">必須</span>
+    <div class="check">
+      <%= f.radio_button :check, '1', required: true %>
+      <%= f.label :check, "はい", value: 1 %>
+      <%= f.radio_button :check, '0', required: true %>
+      <%= f.label :check, "まだです", value: 0 %>
+    </div>
+    <% if @post.errors.include?(:check) %>
+      <p class="error-message"><%= @post.errors.full_messages_for(:check).first %></p>
+    <% end %>
+  </div>
+
+  <button class="btn submit"><%= yield(:button_text) %></button>
+<% end %>

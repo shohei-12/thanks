@@ -39,7 +39,9 @@ form {
   input[type="text"],
   input[type="email"],
   input[type="password"],
-  input[type="file"] {
+  input[type="file"],
+  select,
+  textarea {
     width: 100%;
     padding: 15px;
     margin-top: 8px;
@@ -52,8 +54,15 @@ form {
     border: none;
     padding-left: 0;
   }
+  select {
+    padding-top: 10px;
+    height: 50px;
+  }
   .error-message {
     color: #ef5350;
     margin: 5px 0 0;
+  }
+  .check {
+    margin-top: 8px;
   }
 }
