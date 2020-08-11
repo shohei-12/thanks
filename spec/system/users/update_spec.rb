@@ -11,9 +11,9 @@ RSpec.describe 'UsersUpdate', type: :system do
 
     context 'when user information is valid' do
       it 'update a user information' do
-        fill_in 'ユーザー名（50文字以内）', with: 'test1-update'
+        fill_in 'ユーザー名', with: 'test1-update'
         fill_in 'メールアドレス', with: 'test1-update@example.com'
-        fill_in 'パスワード（6文字以上）', with: 'foobar'
+        fill_in 'パスワード', with: 'foobar'
         fill_in '確認用パスワード', with: 'foobar'
         click_button '更新する'
         @test1.reload
@@ -25,9 +25,9 @@ RSpec.describe 'UsersUpdate', type: :system do
 
     context 'when user information is invalid' do
       it 'do not update a user information' do
-        fill_in 'ユーザー名（50文字以内）', with: ''
+        fill_in 'ユーザー名', with: ''
         fill_in 'メールアドレス', with: 'testexample.com'
-        fill_in 'パスワード（6文字以上）', with: 'hoge'
+        fill_in 'パスワード', with: 'hoge'
         fill_in '確認用パスワード', with: 'hoge'
         click_button '更新する'
         @test1.reload
