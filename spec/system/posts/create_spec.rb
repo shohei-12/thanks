@@ -14,18 +14,18 @@ RSpec.describe 'PostsCreate', type: :system do
 
     context 'when post information is valid' do
       it 'create a post' do
-        fill_in 'タイトル（50文字以内）', with: 'test'
+        fill_in 'タイトル', with: 'test'
         select 'お父さん・お母さん', from: 'post_category_id'
-        fill_in '内容（400文字以内）', with: 'testです。'
+        fill_in '内容', with: 'testです。'
         expect { click_button '投稿する' }.to change(Post, :count).by(1)
       end
     end
 
     context 'when post information is invalid' do
       it 'do not create a post' do
-        fill_in 'タイトル（50文字以内）', with: ''
+        fill_in 'タイトル', with: ''
         select 'お父さん・お母さん', from: 'post_category_id'
-        fill_in '内容（400文字以内）', with: ''
+        fill_in '内容', with: ''
         expect { click_button '投稿する' }.to change(Post, :count).by(0)
         expect(page).to have_css '.error-message'
       end
