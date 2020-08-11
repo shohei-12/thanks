@@ -1,5 +1,4 @@
 form {
-  text-align: center;
   max-width: 800px;
   margin: 0 auto;
   button.submit {
@@ -10,6 +9,13 @@ form {
     &:focus {
       outline: none;
     }
+  }
+}
+
+.form {
+  text-align: center;
+  h1 {
+    margin: 0 0 30px;
   }
 }
 
@@ -30,7 +36,10 @@ form {
   span.optional {
     background-color: #424242;
   }
-  input:not([type="checkbox"]) {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="file"] {
     width: 100%;
     padding: 15px;
     margin-top: 8px;
