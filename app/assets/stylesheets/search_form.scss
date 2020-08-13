@@ -1,0 +1,33 @@
+/* Common Style */
+.search-form {
+  display: flex;
+  align-items: center;
+  input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    border-right: none;
+    outline: none;
+  }
+  button {
+    padding: 0 20px;
+    height: 50px;
+    border: 1px solid #ced4da;
+    border-left: none;
+    background-color: #81c784;
+    color: #fff;
+    cursor: pointer;
+    &:hover {
+      color: #333;
+    }
+  }
+}
+
+/* Tablet and PC Style */
+@media all and (min-width: 501px) {
+  .search-form {
+    width: 68%;
+    margin: 0;
+  }
+}

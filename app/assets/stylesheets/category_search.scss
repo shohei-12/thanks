@@ -1,0 +1,26 @@
+/* Common Style */
+.category-search {
+  display: flex;
+}
+
+/* Smartphone Style */
+@media all and (max-width: 500px) {
+  .category-search {
+    flex-direction: column;
+    text-align: center;
+    .category-menu {
+      order: 2;
+    }
+    .search-form {
+      order: 1;
+      margin: 0 0 20px;
+    }
+  }
+}
+
+/* Tablet and PC Style */
+@media all and (min-width: 501px) {
+  .category-search {
+    justify-content: space-evenly;
+  }
+}

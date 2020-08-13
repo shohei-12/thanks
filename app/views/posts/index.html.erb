@@ -1,4 +1,10 @@
-<%= link_to '人気ランキング', popular_posts_path %>
-<%= render 'search_form' %>
-<%= render 'list' %>
+<div class="category-search">
+  <%= render 'category_menu' %>
+  <%= render 'search_form' %>
+</div>
+
+<div class="post-list">
+  <%= render 'list' %>
+</div>
+
 <%= paginate @posts %>

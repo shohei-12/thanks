@@ -1,18 +1,27 @@
-<div class="row">
-  <% @posts.each do |post| %>
-    <div class="col s12 m6 l4 xl3">
-      <div class="card center-align">
-        <div class="card-image">
-          <%= image_tag 'spring.jpg', alt: '画像' %>
+<% @posts.each do |post| %>
+  <div class="post">
+    <div class="contents">
+      <a href="/users/<%= post.user.id %>"><%= image_tag post.user.image.url, alt: 'アイコン画像' %></a>
+      <a href="/posts/<%= post.id %>">
+        <div class="info">
+          <div class="category">
+            <span class="category-color<%= post.category.id %>"><%= post.category.name %></span>
+          </div>
+          <div class="title">
+            <h2><%= post.title %></h2>
+          </div>
+          <div class="comment-like">
+            <span class="comment">
+              <%= icon('fas', 'comment-dots') %>
+              <%= post.comments.length %>
+            </span>
+            <span class="like">
+              <%= icon('fas', 'heart') %>
+              <%= post.likes.length %>
+            </span>
+          </div>
         </div>
-        <div class="card-content">
-          <p><%= link_to post.title, post %></p>
-          <span>いいね数：<%= post.likes.length %></span>
-        </div>
-        <div class="card-action">
-          <%= link_to post.user.name, post.user %>
-        </div>
-      </div>
+      </a>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
