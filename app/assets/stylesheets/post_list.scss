@@ -1,0 +1,70 @@
+/* Common Style */
+.post-list .post {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 3px 6px #ccc;
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border-top: solid 3px #eb00ff;
+    border-right: solid 3px #069a48;
+    border-bottom: solid 3px #ffe000;
+    border-left: solid 3px #00e7ff;
+  }
+  .contents a:nth-of-type(2) {
+    color: #333;
+    .category span {
+      font-size: 14px;
+      color: #fff;
+      padding: 3px;
+    }
+    .title h2 {
+      font-size: 18px;
+      font-weight: normal;
+    }
+    .comment-like {
+      font-size: 14px;
+      .comment i {
+        color: #ffb300;
+      }
+      .like i {
+        color: #e91e63;
+      }
+    }
+  }
+}
+
+/* Smartphone Style */
+@media all and (max-width: 500px) {
+  .post-list .post {
+    text-align: center;
+  }
+}
+
+/* Tablet and PC Style */
+@media all and (min-width: 501px) {
+  .post-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .post {
+      width: 500px;
+      .contents {
+        display: flex;
+        a:nth-of-type(1) {
+          margin-right: 20px;
+        }
+        a:nth-of-type(2) {
+          width: 100%;
+          .comment-like {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}
