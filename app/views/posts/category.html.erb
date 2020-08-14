@@ -1,3 +1,13 @@
-<h1>カテゴリー: <%= @category.name %> に属する投稿</h1>
+<div class="category-by">
+  <div class="category-search">
+    <%= render 'category_menu' %>
+    <%= render 'search_form' %>
+  </div>
 
-<%= render 'list' %>
+  <div class="posts">
+    <%= render 'list' %>
+  </div>
+
+  <%= paginate @posts %>
+</div>
+

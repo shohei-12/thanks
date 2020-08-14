@@ -24,7 +24,8 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.search(params[:search]).page(params[:page]).per(20).order(created_at: :desc)
+    @search_params = params[:search]
+    @posts = Post.search(@search_params).page(params[:page]).per(20).order(created_at: :desc)
   end
 
   def category
