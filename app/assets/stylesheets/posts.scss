@@ -1,5 +1,5 @@
 /* Common Style */
-.post-list .post {
+.posts .post {
   margin: 20px;
   padding: 20px;
   border-radius: 5px;
@@ -40,14 +40,14 @@
 
 /* Smartphone Style */
 @media all and (max-width: 500px) {
-  .post-list .post {
+  .posts .post {
     text-align: center;
   }
 }
 
 /* Tablet and PC Style */
 @media all and (min-width: 501px) {
-  .post-list {
+  .posts {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
