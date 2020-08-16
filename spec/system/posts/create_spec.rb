@@ -17,6 +17,7 @@ RSpec.describe 'PostsCreate', type: :system do
         fill_in 'タイトル', with: 'test'
         select 'お父さん・お母さん', from: 'post_category_id'
         fill_in '内容', with: 'testです。'
+        choose 'はい'
         expect { click_button '投稿する' }.to change(Post, :count).by(1)
       end
     end

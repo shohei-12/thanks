@@ -1,28 +1,35 @@
-<% if @user.image? %>
-  <%= image_tag @user.image.url, alt: 'アイコン画像' %>
-<% else %>
-  <img alt="アイコン画像" src="/assets/default.png" width="150" height="150">
-<% end %>
+<div class="user-details">
+  <div class="user-info">
+    <% if @user.image? %>
+      <%= image_tag @user.image.url, alt: 'アイコン画像', width: '200', height: '200' %>
+    <% else %>
+      <img alt="アイコン画像" src="/assets/default.png" width="200" height="200">
+    <% end %>
+    <p><%= @user.name %></p>
+    <span><%= @user.followings.count %>フォロー中</span>
+    <span><%= @user.followers.count %>フォロワー</span>
+  </div>
 
-<p><%= @user.name %></p>
+  <div class="follow-unfollow-btn">
+    <%= render 'relationships/follow_unfollow_btn', user: @user %>
+  </div>
 
-<div class="follow-unfollow-btn">
-  <%= render 'relationships/follow_unfollow_btn', user: @user %>
-</div>
-
-<div class="row">
-  <% @posts.each do |post| %>
-    <div class="col s12 m6 l4 xl3">
-      <div class="card center-align">
-        <div class="card-image">
-          <%= image_tag 'spring.jpg', alt: '画像' %>
-        </div>
-        <div class="card-content">
-          <p><%= link_to post.title, post %></p>
-        </div>
+  <div class="tab-wrap">
+    <input id="tab1" type="radio" name="tab" class="tab-switch" checked="checked">
+    <label class="tab-label" for="tab1">投稿 <%= @posts.total_count %></label>
+    <div class="tab-content">
+      <div class="posts">
+        <%= render 'posts/list', posts: @posts %>
       </div>
+      <%= paginate @posts %>
     </div>
-  <% end %>
+    <input id="tab2" type="radio" name="tab" class="tab-switch">
+    <label class="tab-label" for="tab2">いいね <%= @like_posts.total_count %></label>
+    <div class="tab-content">
+      <div class="posts">
+        <%= render 'posts/list', posts: @like_posts %>
+      </div>
+      <%= paginate @like_posts %>
+    </div>
+  </div>
 </div>
-
-<%= paginate @posts %>

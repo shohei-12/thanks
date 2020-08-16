@@ -5,7 +5,7 @@
   </div>
 
   <div class="posts">
-    <%= render 'list' %>
+    <%= render 'list', posts: @posts %>
   </div>
 
   <%= paginate @posts %>
