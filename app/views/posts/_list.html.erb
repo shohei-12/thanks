@@ -1,7 +1,7 @@
-<% @posts.each do |post| %>
+<% posts.each do |post| %>
   <div class="post">
     <div class="contents">
-      <a href="/users/<%= post.user.id %>"><%= image_tag post.user.image.url, alt: 'アイコン画像' %></a>
+      <a href="/users/<%= post.user.id %>"><%= image_tag post.user.image.url, alt: 'アイコン画像', width: '100', height: '100' %></a>
       <a href="/posts/<%= post.id %>">
         <div class="info">
           <div class="category">
