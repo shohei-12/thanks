@@ -18,7 +18,7 @@
     <input id="tab1" type="radio" name="tab" class="tab-switch" checked="checked">
     <label class="tab-label" for="tab1">投稿 <%= @posts.total_count %></label>
     <div class="tab-content">
-      <div class="posts">
+      <div class="posts my-posts">
         <%= render 'posts/list', posts: @posts %>
       </div>
       <%= paginate @posts %>
@@ -26,10 +26,12 @@
     <input id="tab2" type="radio" name="tab" class="tab-switch">
     <label class="tab-label" for="tab2">いいね <%= @like_posts.total_count %></label>
     <div class="tab-content">
-      <div class="posts">
-        <%= render 'posts/list', posts: @like_posts %>
+      <div class="posts like-posts">
+        <%= render 'posts/like_posts' %>
       </div>
       <%= paginate @like_posts %>
     </div>
   </div>
 </div>
+
+<script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
