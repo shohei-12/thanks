@@ -1,5 +1,6 @@
 /* Common Style */
-.posts .post {
+.posts .post,
+.posts .like-post {
   margin: 20px;
   padding: 20px;
   border-radius: 5px;
@@ -30,7 +31,8 @@
 
 /* Smartphone Style */
 @media all and (max-width: 500px) {
-  .posts .post {
+  .posts .post,
+  .posts .like-post {
     text-align: center;
   }
 }
@@ -41,7 +43,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    .post {
+    .post,
+    .like-post {
       width: 500px;
       .contents {
         display: flex;

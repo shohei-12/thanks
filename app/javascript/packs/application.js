@@ -26,4 +26,25 @@ $(function () {
       $("nav").addClass("open");
     }
   });
+
+  $(".posts").infiniteScroll({
+    path: ".pagination a[rel='next']",
+    append: ".post",
+    history: false,
+    prefill: false,
+  });
+
+  $(".my-posts").infiniteScroll({
+    path: ".pagination a[rel='next']",
+    append: ".post",
+    history: false,
+    prefill: true,
+  });
+
+  $(".like-posts").infiniteScroll({
+    path: ".pagination a[rel='next']",
+    append: ".like-post",
+    history: false,
+    prefill: true,
+  });
 });
