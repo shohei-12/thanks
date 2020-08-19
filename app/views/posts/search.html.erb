@@ -3,10 +3,9 @@
     <%= render 'category_menu' %>
     <%= render 'search_form' %>
   </div>
-
   <div class="posts">
     <%= render 'list', posts: @posts %>
   </div>
-
   <%= paginate @posts %>
+  <%= render 'shared/infinite_scroll1' %>
 </div>
