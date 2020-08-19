@@ -1,7 +1,6 @@
 form {
   max-width: 800px;
   margin: 0 auto;
-  text-align: center;
   button.submit {
     background-color: #4db6ac;
     font-size: 16px;
@@ -11,10 +10,6 @@ form {
       outline: none;
     }
   }
-}
-
-.login-form {
-  text-align: center;
 }
 
 .form-parts {
