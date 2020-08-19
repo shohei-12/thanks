@@ -1,6 +1,7 @@
 /* Common Style */
 .posts .post,
-.posts .like-post {
+.my-posts .my-post,
+.like-posts .like-post {
   margin: 20px;
   padding: 20px;
   border-radius: 5px;
@@ -32,18 +33,22 @@
 /* Smartphone Style */
 @media all and (max-width: 500px) {
   .posts .post,
-  .posts .like-post {
+  .my-posts .my-post,
+  .like-posts .like-post {
     text-align: center;
   }
 }
 
 /* Tablet and PC Style */
 @media all and (min-width: 501px) {
-  .posts {
+  .posts,
+  .my-posts,
+  .like-posts {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     .post,
+    .my-post,
     .like-post {
       width: 500px;
       .contents {

@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.page(params[:page]).per(20).order(created_at: :desc)
+    @my_posts = @user.posts.page(params[:page]).per(20).order(created_at: :desc)
     @like_posts = @user.like_posts.page(params[:page]).per(20).order(created_at: :desc)
   end
 
