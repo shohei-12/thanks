@@ -1,4 +1,4 @@
-$(".comments ul").prepend("<%= j(render 'comment', { comment: @comment }) %>");
+$(".comments").prepend("<%= j(render 'comment', { comment: @comment }) %>");
 
 $(".error-message").html("<%= j(render 'error_messages', { comment: @comment }) %>");
 
