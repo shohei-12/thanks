@@ -1,9 +1,5 @@
-<%= render 'post_detail' %>
-
-<% if current_user?(@post.user) %>
-  <%= link_to '削除する', @post, method: :delete, data: { confirm: '本当に削除しますか？' } %>
-<% end %>
-
-<%= render 'comment_form' %>
-
-<%= render 'comment_list' %>
+<div class="post-details">
+  <%= render 'post_detail' %>
+  <%= render 'comment_form' %>
+  <%= render 'comment_list' %>
+</div>

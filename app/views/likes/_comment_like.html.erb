@@ -1,9 +1,9 @@
 <% if current_user.likes.find_by(comment_id: comment.id) %>
-  <%= link_to comment_unlike_path(comment), method: :delete, remote: true do %>
+  <%= link_to comment_unlike_path(comment), method: :delete, remote: true, class: 'like' do %>
     <%= icon('fas', 'heart') %>
   <% end %>
 <% else %>
-  <%= link_to comment_like_path(comment), method: :post, remote: true do %>
+  <%= link_to comment_like_path(comment), method: :post, remote: true, class: 'not-like' do %>
     <%= icon('far', 'heart') %>
   <% end %>
 <% end %>

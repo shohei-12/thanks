@@ -23,6 +23,14 @@ $(function () {
     status: ".pls2",
   });
 
+  $(".comments").infiniteScroll({
+    path: ".pagination a[rel='next']",
+    append: ".comment",
+    button: ".vmb1",
+    scrollThreshold: false,
+    status: ".pls1",
+  });
+
   if (!$(".pagination").length) {
     $(".view-more-button").hide();
   }

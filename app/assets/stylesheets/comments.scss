@@ -1,3 +1,25 @@
-// Place all the styles related to the comments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.post-details .comments {
+  margin-top: 50px;
+  .comment {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    .right {
+      margin: -5px 0 0 20px;
+      width: 500px;
+      text-align-last: left;
+      .commenter {
+        font-size: 14px;
+        color: #333;
+      }
+      p {
+        margin-top: 10px;
+        word-break: break-all;
+      }
+      .comment-like {
+        display: inline-block;
+        margin-right: 10px;
+      }
+    }
+  }
+}
