@@ -8,9 +8,9 @@ RSpec.describe 'CommentsCreate', js: true, type: :system do
   end
 
   it 'create a comment' do
-    fill_in 'コメント（400文字以内）', with: 'テストコメント'
+    fill_in 'コメントを書く', with: 'テストコメント'
     click_button 'コメントする'
-    expect(page).to have_selector '.comments li p', text: 'テストコメント'
-    expect(page).to have_selector '.comments li a', text: '削除する'
+    expect(page).to have_selector '.comments p', text: 'テストコメント'
+    expect(page).to have_selector '.comments .delete', text: '削除する'
   end
 end

@@ -24,8 +24,8 @@ RSpec.describe 'CommentsDelete', js: true, type: :system do
         end
 
         it 'delete a comment' do
-          expect(page).not_to have_selector '.comments li p', text: @comment1.content
-          expect(page).not_to have_selector '.comments li a', text: '削除する'
+          expect(page).not_to have_selector '.comments p', text: @comment1.content
+          expect(page).not_to have_selector '.comments .delete', text: '削除する'
           expect(Comment.count).to eq 0
         end
       end
@@ -38,8 +38,8 @@ RSpec.describe 'CommentsDelete', js: true, type: :system do
         end
 
         it 'do not delete a comment' do
-          expect(page).to have_selector '.comments li p', text: @comment1.content
-          expect(page).to have_selector '.comments li a', text: '削除する'
+          expect(page).to have_selector '.comments p', text: @comment1.content
+          expect(page).to have_selector '.comments .delete', text: '削除する'
           expect(Comment.count).to eq 1
         end
       end
@@ -52,7 +52,7 @@ RSpec.describe 'CommentsDelete', js: true, type: :system do
       end
 
       it 'cannot delete a comment' do
-        expect(page).not_to have_selector '.comments li a', text: '削除する'
+        expect(page).not_to have_selector '.comments .delete', text: '削除する'
       end
     end
   end
