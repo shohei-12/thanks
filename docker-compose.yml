@@ -24,16 +24,30 @@ services:
       bash -c "rm -f /thanks/tmp/pids/server.pid
       && rm -rf /thanks/public/packs
       && bundle exec rails webpacker:compile
-      && bundle exec rails s -p 3000 -b '0.0.0.0'"
+      && bundle exec puma -C config/puma.rb"
     tty: true
     stdin_open: true
     volumes:
       - .:/thanks
-    ports:
-      - "3000:3000"
+      - public-data:/thanks/public
+      - tmp-data:/thanks/tmp
+      - log-data:/thanks/log
     depends_on:
       - db
       - webpacker
 
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+    volumes:
+      - public-data:/thanks/public
+      - tmp-data:/thanks/tmp
+    depends_on:
+      - web
+
 volumes:
   mysql-data:
+  public-data:
+  tmp-data:
+  log-data:
