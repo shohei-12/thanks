@@ -51,16 +51,9 @@ RSpec.describe 'CommentsDelete', js: true, type: :system do
         visit post_path(@comment1.post)
       end
 
-      it 'cannot delete a comment' do
+      it 'do not display delete link' do
         expect(page).not_to have_selector '.comments .delete', text: '削除する'
       end
-    end
-  end
-
-  context 'when the user is not logged in' do
-    it 'cannot delete a comment' do
-      visit post_path(@comment1.post)
-      expect(page).to have_current_path login_path
     end
   end
 end
