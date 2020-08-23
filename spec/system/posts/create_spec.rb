@@ -24,9 +24,10 @@ RSpec.describe 'PostsCreate', type: :system do
 
     context 'when post information is invalid' do
       it 'do not create a post' do
-        fill_in 'タイトル', with: ''
+        fill_in 'タイトル', with: 'a' * 51
         select 'お父さん・お母さん', from: 'post_category_id'
-        fill_in '内容', with: ''
+        fill_in '内容', with: 'a' * 401
+        choose 'はい'
         expect { click_button '投稿する' }.to change(Post, :count).by(0)
         expect(page).to have_css '.error-message'
       end
@@ -36,7 +37,7 @@ RSpec.describe 'PostsCreate', type: :system do
   context 'when the user is not logged in' do
     it 'cannot access post create page' do
       visit new_post_path
-      expect(page).to have_current_path login_path
+      expect(current_path).to eq login_path
     end
   end
 end

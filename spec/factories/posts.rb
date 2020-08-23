@@ -4,5 +4,6 @@ FactoryBot.define do
     association :category, factory: :category1
     sequence(:title) { |i| "test#{i}" }
     sequence(:content) { |i| "test#{i}です。" }
+    check { 1 }
   end
 end
