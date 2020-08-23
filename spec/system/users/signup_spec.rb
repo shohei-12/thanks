@@ -15,7 +15,7 @@ RSpec.describe 'UsersSignup', type: :system do
 
   context 'when user information is invalid' do
     it 'do not signup a user' do
-      fill_in 'ユーザー名', with: ''
+      fill_in 'ユーザー名', with: 'a' * 51
       fill_in 'メールアドレス', with: 'test@examplecom'
       fill_in 'パスワード', with: 'password'
       fill_in '確認用パスワード', with: 'pasword'

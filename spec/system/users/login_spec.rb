@@ -5,16 +5,14 @@ RSpec.describe 'UsersLogin', type: :system do
 
   before { visit login_path }
 
-  subject { page }
-
   context 'when login information is correct' do
     it 'log in' do
       fill_in 'メールアドレス', with: test1.email
       fill_in 'パスワード', with: test1.password
       click_button 'ログイン'
-      is_expected.to have_current_path user_path(test1)
-      is_expected.to have_css '.success-message'
-      is_expected.to have_link 'ログアウト', href: logout_path
+      expect(current_path).to eq user_path(test1)
+      expect(page).to have_css '.success-message'
+      expect(page).to have_link 'ログアウト', href: logout_path
     end
   end
 
@@ -23,8 +21,8 @@ RSpec.describe 'UsersLogin', type: :system do
       fill_in 'メールアドレス', with: 'incorrect@example.com'
       fill_in 'パスワード', with: 'password'
       click_button 'ログイン'
-      is_expected.to have_css '.danger-message'
-      is_expected.to have_link 'ログイン', href: login_path
+      expect(page).to have_css '.danger-message'
+      expect(page).to have_link 'ログイン', href: login_path
     end
   end
 
@@ -32,9 +30,9 @@ RSpec.describe 'UsersLogin', type: :system do
     it 'log in as a guest user' do
       guest = create(:guest)
       click_link 'かんたんログイン'
-      is_expected.to have_current_path user_path(guest)
-      is_expected.to have_css '.success-message'
-      is_expected.to have_link 'ログアウト', href: logout_path
+      expect(current_path).to eq user_path(guest)
+      expect(page).to have_css '.success-message'
+      expect(page).to have_link 'ログアウト', href: logout_path
     end
   end
 end

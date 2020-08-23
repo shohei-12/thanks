@@ -1,3 +1,5 @@
+# ユーザー削除機能が必要であるかどうか検討中
+
 # require 'rails_helper'
 
 # RSpec.describe 'UsersDelete', js: true, type: :system do
