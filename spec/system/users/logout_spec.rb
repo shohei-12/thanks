@@ -11,8 +11,8 @@ RSpec.describe 'UsersLogout', type: :system do
     it 'log out' do
       visit user_path(@test1)
       click_link 'ログアウト'
-      expect(page).to have_current_path root_path
-      expect(page).to have_css '.danger-message'
+      expect(current_path).to eq root_path
+      expect(page).to have_css '.success-message'
       expect(page).to have_link 'ログイン', href: login_path
     end
   end
@@ -20,6 +20,7 @@ RSpec.describe 'UsersLogout', type: :system do
   context 'when the user is not logged in' do
     it 'cannot log out' do
       visit user_path(@test1)
+      expect(current_path).to eq login_path
       expect(page).not_to have_link 'ログアウト', href: logout_path
     end
   end

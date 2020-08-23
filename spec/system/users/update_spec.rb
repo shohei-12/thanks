@@ -25,16 +25,16 @@ RSpec.describe 'UsersUpdate', type: :system do
 
     context 'when user information is invalid' do
       it 'do not update a user information' do
-        fill_in 'ユーザー名', with: ''
+        fill_in 'ユーザー名', with: 'a' * 51
         fill_in 'メールアドレス', with: 'testexample.com'
         fill_in 'パスワード', with: 'hoge'
         fill_in '確認用パスワード', with: 'hoge'
         click_button '更新する'
+        expect(page).to have_css '.error-message'
         @test1.reload
         expect(@test1.name).to eq 'test1'
         expect(@test1.email).to eq 'test1@example.com'
         expect(@test1.authenticate('password')).to be_truthy
-        expect(page).to have_css '.error-message'
       end
     end
   end
@@ -42,7 +42,7 @@ RSpec.describe 'UsersUpdate', type: :system do
   context 'when the user is not logged in' do
     it 'cannot access edit page' do
       visit edit_user_path(@test1)
-      expect(page).to have_current_path login_path
+      expect(current_path).to eq login_path
     end
   end
 end
