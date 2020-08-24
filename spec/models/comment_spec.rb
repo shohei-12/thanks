@@ -3,14 +3,6 @@ require 'rails_helper'
 RSpec.describe Comment, type: :model do
   let(:comment1) { build(:comment1) }
 
-  describe 'comment1' do
-    context 'when comment1 is valid' do
-      it 'return true' do
-        expect(comment1.valid?).to eq true
-      end
-    end
-  end
-
   describe 'content' do
     context 'when content is invalid' do
       context 'when content is empty' do
