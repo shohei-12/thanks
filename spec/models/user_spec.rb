@@ -6,14 +6,6 @@ RSpec.describe User, type: :model do
   let(:test3) { create(:test1) }
   let(:test4) { create(:test2) }
 
-  describe 'test1' do
-    context 'when test1 is a valid user' do
-      it 'return true' do
-        expect(test1.valid?).to eq true
-      end
-    end
-  end
-
   describe 'name' do
     context 'when name is invalid' do
       context 'when name is empty' do
@@ -158,7 +150,7 @@ RSpec.describe User, type: :model do
 
       context 'when remember_token and remember_digest do not match' do
         it 'return false' do
-          expect(test1.authenticated?(User.new_token)).to eq false
+          expect(test1.authenticated?(User.digest(User.new_token))).to eq false
         end
       end
 
@@ -171,7 +163,7 @@ RSpec.describe User, type: :model do
 
     context 'when remember_digest is nil' do
       it 'return false' do
-        expect(test1.authenticated?(User.new_token)).to eq false
+        expect(test1.authenticated?(User.digest(User.new_token))).to eq false
       end
     end
   end
