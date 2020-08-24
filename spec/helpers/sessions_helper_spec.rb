@@ -4,9 +4,18 @@ RSpec.describe SessionsHelper, type: :helper do
   let(:test1) { create(:test1) }
 
   describe '#log_in(user)' do
-    it 'log in with the given user' do
-      log_in(test1)
-      expect(session[:user_id]).to eq test1.id
+    context 'when the given user is exist' do
+      it 'log in with the given user' do
+        log_in(test1)
+        expect(session[:user_id]).to eq test1.id
+      end
+    end
+
+    context 'when the given user is not exist' do
+      it 'raises NoMethodError' do
+        log_in(nil)
+      rescue StandardError
+      end
     end
   end
 
@@ -22,6 +31,24 @@ RSpec.describe SessionsHelper, type: :helper do
     context 'when the user is not logged in' do
       it 'return false' do
         expect(logged_in?).to eq false
+      end
+    end
+  end
+
+  describe '#remember(user)' do
+    context 'when the given user is exist' do
+      it 'save login status' do
+        remember test1
+        expect(test1.authenticated?(test1.remember_token)).to eq true
+        expect(cookies.signed[:user_id]).to eq test1.id
+        expect(cookies[:remember_token]).to eq test1.remember_token
+      end
+    end
+
+    context 'when the given user is not exist' do
+      it 'raises NoMethodError' do
+        remember nil
+      rescue StandardError
       end
     end
   end
@@ -53,17 +80,56 @@ RSpec.describe SessionsHelper, type: :helper do
   end
 
   describe '#current_user?(user)' do
-    context 'when the given user is logged in' do
-      before { log_in(test1) }
+    context 'when the given user is exist' do
+      context 'when the given user is logged in' do
+        before { log_in(test1) }
 
-      it 'return true' do
-        expect(current_user?(test1)).to eq true
+        it 'return true' do
+          expect(current_user?(test1)).to eq true
+        end
+      end
+
+      context 'when the given user is not logged in' do
+        it 'return false' do
+          expect(current_user?(test1)).to eq false
+        end
       end
     end
 
-    context 'when the given user is not logged in' do
-      it 'return false' do
-        expect(current_user?(test1)).to eq false
+    context 'when the given user is not exist' do
+      it 'return nil' do
+        expect(current_user?(nil)).to eq nil
+      end
+    end
+  end
+
+  describe '#forget(user)' do
+    context 'when the given user is exist' do
+      context 'when the given user is logged in' do
+        before { remember test1 }
+
+        it 'break a persistent session' do
+          forget test1
+          expect(test1.reload.remember_digest).to eq nil
+          expect(cookies.signed[:user_id]).to eq nil
+          expect(cookies[:remember_token]).to eq nil
+        end
+      end
+
+      context 'when the given user is not logged in' do
+        it 'no change' do
+          forget test1
+          expect(test1.reload.remember_digest).to eq nil
+          expect(cookies.signed[:user_id]).to eq nil
+          expect(cookies[:remember_token]).to eq nil
+        end
+      end
+    end
+
+    context 'when the given user is not exist' do
+      it 'raises NoMethodError' do
+        forget nil
+      rescue StandardError
       end
     end
   end
@@ -84,46 +150,6 @@ RSpec.describe SessionsHelper, type: :helper do
     context 'when the user is not logged in' do
       it 'raises NoMethodError' do
         log_out
-      rescue StandardError
-      end
-    end
-  end
-
-  describe '#remember(user)' do
-    context 'when the given user is exist' do
-      it 'save login status' do
-        remember test1
-        expect(test1.authenticated?(test1.remember_token)).to eq true
-        expect(cookies.signed[:user_id]).to eq test1.id
-        expect(cookies[:remember_token]).to eq test1.remember_token
-      end
-    end
-
-    context 'when the given user is not exist' do
-      it 'raises NoMethodError' do
-        remember nil
-      rescue StandardError
-      end
-    end
-  end
-
-  describe '#forget(user)' do
-    context 'when the given user is exist' do
-      context 'when the given user is logged in' do
-        before { remember test1 }
-
-        it 'break a persistent session' do
-          forget test1
-          expect(test1.reload.remember_digest).to eq nil
-          expect(cookies.signed[:user_id]).to eq nil
-          expect(cookies[:remember_token]).to eq nil
-        end
-      end
-    end
-
-    context 'when the given user is not exist' do
-      it 'raises NoMethodError' do
-        forget nil
       rescue StandardError
       end
     end

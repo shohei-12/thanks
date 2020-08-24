@@ -9,6 +9,13 @@ module SessionsHelper
     !session[:user_id].nil?
   end
 
+  # Make a user's session persistent
+  def remember(user)
+    user.remember
+    cookies.permanent.signed[:user_id] = user.id
+    cookies.permanent[:remember_token] = user.remember_token
+  end
+
   # Return the logged in user
   def current_user
     if (user_id = session[:user_id])
@@ -27,23 +34,16 @@ module SessionsHelper
     user && user == current_user
   end
 
-  # Log out the current user
-  def log_out
-    forget(current_user)
-    session.delete(:user_id)
-  end
-
-  # Make a user's session persistent
-  def remember(user)
-    user.remember
-    cookies.permanent.signed[:user_id] = user.id
-    cookies.permanent[:remember_token] = user.remember_token
-  end
-
   # Break a persistent session
   def forget(user)
     user.forget
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
+  end
+
+  # Log out the current user
+  def log_out
+    forget(current_user)
+    session.delete(:user_id)
   end
 end
