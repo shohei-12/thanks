@@ -15,6 +15,7 @@ class Post < ApplicationRecord
   # validations
   validates :title, presence: true, length: { maximum: 50 }
   validates :content, presence: true, length: { maximum: 400 }
+  validates :check, presence: true, inclusion: { in: [0, 1] }
 
   # Get 10 popular posts
   def self.popular
