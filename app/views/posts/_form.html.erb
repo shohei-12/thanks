@@ -40,5 +40,19 @@
     <% end %>
   </div>
 
+  <div class="form-parts">
+    <%= f.label :status, "公開・非公開設定" %>
+    <span class="required">必須</span>
+    <div class="status">
+      <%= f.radio_button :status, '1', required: true %>
+      <%= f.label :status, "公開する", value: 1 %>
+      <%= f.radio_button :status, '0', required: true %>
+      <%= f.label :status, "公開しない", value: 0 %>
+    </div>
+    <% if @post.errors.include?(:status) %>
+      <p class="error-message"><%= @post.errors.full_messages_for(:status).first %></p>
+    <% end %>
+  </div>
+
   <button class="btn submit"><%= yield(:button_text) %></button>
 <% end %>
