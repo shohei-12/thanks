@@ -1,4 +1,4 @@
-$(function () {
+$(document).on("turbolinks:load", function () {
   $(".posts").infiniteScroll({
     path: ".pagination a[rel='next']",
     append: ".post",
