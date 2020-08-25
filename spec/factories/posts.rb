@@ -5,5 +5,6 @@ FactoryBot.define do
     sequence(:title) { |i| "test#{i}" }
     sequence(:content) { |i| "test#{i}です。" }
     check { 1 }
+    status { 1 }
   end
 end

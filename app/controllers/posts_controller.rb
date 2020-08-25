@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.page(params[:page]).per(20).order(created_at: :desc)
+    @posts = Post.where(status: 1).page(params[:page]).per(20).order(created_at: :desc)
   end
 
   def popular
@@ -61,7 +61,8 @@ class PostsController < ApplicationController
       :title,
       :content,
       :category_id,
-      :check
+      :check,
+      :status
     )
   end
 
