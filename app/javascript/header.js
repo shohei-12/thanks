@@ -1,4 +1,4 @@
-$(function () {
+$(document).on("turbolinks:load", function () {
   // hamburger menu
   $(".hamburger").on("click", function () {
     if ($(this).hasClass("open")) {
