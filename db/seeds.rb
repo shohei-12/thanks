@@ -32,7 +32,8 @@ end
     content: "テスト#{n + 1}です。",
     user_id: 1,
     category_id: 1,
-    check: rand(0..1)
+    check: rand(0..1),
+    status: rand(0..1)
   )
 end
 
