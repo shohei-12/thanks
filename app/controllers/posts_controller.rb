@@ -30,13 +30,21 @@ class PostsController < ApplicationController
 
   def category
     @category = Category.find(params[:id])
-    @posts = @category.posts.page(params[:page]).per(20).order(created_at: :desc)
+    @posts = @category.posts.where(status: 1).page(params[:page]).per(20).order(created_at: :desc)
   end
 
   def show
-    @post = Post.find(params[:id])
-    @comment = Comment.new
-    @comments = @post.comments.page(params[:page]).per(20).order(created_at: :desc)
+    if current_user.posts.pluck(:id).include?(params[:id].to_i)
+      @post = Post.find(params[:id])
+      @comment = Comment.new
+      @comments = @post.comments.page(params[:page]).per(20).order(created_at: :desc)
+    elsif Post.public_posts.include?(params[:id].to_i)
+      @post = Post.find(params[:id])
+      @comment = Comment.new
+      @comments = @post.comments.page(params[:page]).per(20).order(created_at: :desc)
+    else
+      redirect_to root_path
+    end
   end
 
   def edit; end
