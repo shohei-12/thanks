@@ -63,6 +63,44 @@ RSpec.describe Post, type: :model do
     end
   end
 
+  describe 'status' do
+    context 'when status is invalid' do
+      context 'when status is empty' do
+        before { post1.status = '' }
+
+        it 'return false' do
+          expect(post1.valid?).to eq false
+        end
+      end
+
+      context 'when status has an unexpected value' do
+        before { post1.status = 2 }
+
+        it 'return false' do
+          expect(post1.valid?).to eq false
+        end
+      end
+    end
+  end
+
+  describe '#self.public_posts' do
+    context 'when status is 1' do
+      before { @post1 = create(:post1, status: 1) }
+
+      it 'get post id' do
+        expect(Post.public_posts).to eq [@post1.id]
+      end
+    end
+
+    context 'when status is 0' do
+      before { @post1 = create(:post1, status: 0) }
+
+      it 'not get post id' do
+        expect(Post.public_posts).to eq []
+      end
+    end
+  end
+
   describe '#self.search(keyword)' do
     before { @post1 = create(:post1) }
 

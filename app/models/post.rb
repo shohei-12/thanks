@@ -16,6 +16,7 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: { maximum: 50 }
   validates :content, presence: true, length: { maximum: 400 }
   validates :check, presence: true, inclusion: { in: [0, 1] }
+  validates :status, presence: true, inclusion: { in: [0, 1] }
 
   # Get id of public posts
   def self.public_posts
