@@ -38,4 +38,12 @@ $(document).on("turbolinks:load", function () {
   if (!$(".pagination").length) {
     $(".view-more-button").hide();
   }
+
+  if (!$(".tc1 .pagination").length) {
+    $(".vmb1").hide();
+  }
+
+  if (!$(".tc2 .pagination").length) {
+    $(".vmb2").hide();
+  }
 });
