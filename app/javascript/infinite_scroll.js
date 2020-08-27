@@ -40,10 +40,10 @@ $(document).on("turbolinks:load", function () {
   }
 
   if (!$(".tc1 .pagination").length) {
-    $(".vmb1").hide();
+    $(".tc1 .vmb1").hide();
   }
 
   if (!$(".tc2 .pagination").length) {
-    $(".vmb2").hide();
+    $(".tc2 .vmb2").hide();
   }
 });
