@@ -1,0 +1,31 @@
+<% posts.each do |post| %>
+  <div class="post">
+    <span class="category category-color<%= post.category.id %>"><%= post.category.name %></span>
+    <h2 class="title"><%= post.title.truncate(24) %></h2>
+    <% if post.content.length > 76 %>
+      <p class="content"><%= post.content.slice(0..75) %>...</p>
+    <% else %>
+      <p class="content"><%= post.content.slice(0..75) %></p>
+    <% end %>
+    <a href="/posts/<%= post.id %>" class="details">詳細を見る</a>
+    <div class="flex">
+      <div class="comment-like">
+        <span class="comment">
+          <%= icon('fas', 'comment-dots') %>
+          <%= post.comments.length %>
+        </span>
+        <span class="like">
+          <%= icon('fas', 'heart') %>
+          <%= post.likes.length %>
+        </span>
+      </div>
+      <a href="/users/<%= post.user.id %>">
+        <% if post.user.image? %>
+          <%= image_tag post.user.image.url, alt: 'アイコン画像', width: '50', height: '50' %>
+        <% else %>
+          <img alt="アイコン画像" src="/assets/default.png" width="50" height="50">
+        <% end %>
+      </a>
+    </div>
+  </div>
+<% end %>

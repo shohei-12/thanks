@@ -4,7 +4,7 @@
     <%= render 'search_form' %>
   </div>
   <div class="posts">
-    <%= render 'list', posts: @posts %>
+    <%= render 'post', posts: @posts %>
   </div>
   <%= paginate @posts %>
   <%= render 'shared/infinite_scroll1' %>
