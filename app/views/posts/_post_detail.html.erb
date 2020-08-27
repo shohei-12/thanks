@@ -1,8 +1,8 @@
 <div class="post">
-  <div class="tape"></div>
-  <h2><%= @post.title %></h2>
-  <p><%= @post.content %></p>
-  <div class="end">
+  <span class="category category-color<%= @post.category.id %>"><%= @post.category.name %></span>
+  <h2 class="title"><%= @post.title %></h2>
+  <p class="content"><%= @post.content %></p>
+  <div class="flex">
     <div class="left">
       <div id="post-like-<%= @post.id %>">
         <%= render 'likes/post_like', post: @post %>
@@ -21,6 +21,7 @@
         <% end %>
       </a>
       <%= link_to @post.user.name, @post.user, class: 'contributor' %>
+      <span class="created-at"><%= l @post.created_at %></span>
     </div>
   </div>
 </div>
