@@ -1,0 +1,108 @@
+/* Common Style */
+.post-details {
+  .post {
+    position: relative;
+    margin: 0 auto 50px;
+    padding: 20px 7px 10px;
+    background-color: #fff;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3),
+      0 0 50px rgba(0, 0, 0, 0.1) inset;
+    border-radius: 4px;
+    .category {
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 5px;
+      padding: 0 12px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 14px;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12);
+      &:before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: -7px;
+        border: none;
+        height: 38px;
+        width: 7px;
+        border-radius: 5px 0 0 5px;
+      }
+      &:after {
+        position: absolute;
+        content: "";
+        bottom: -7px;
+        left: -5px;
+        border: none;
+        height: 7px;
+        width: 5px;
+        border-radius: 5px 0 0 5px;
+      }
+    }
+    .title {
+      font-size: 20px;
+      font-weight: normal;
+      word-break: break-all;
+    }
+    .content {
+      color: #777;
+      word-break: break-all;
+    }
+    .flex {
+      .right {
+        display: flex;
+        .contributor {
+          margin: 0 10px;
+          color: #333;
+        }
+      }
+    }
+  }
+  .edit:hover,
+  .delete:hover {
+    text-decoration: underline;
+  }
+  .like i,
+  .not-like i {
+    color: #e91e63;
+    transition: transform 0.4s;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+  .created-at {
+    font-size: 12px;
+  }
+}
+
+/* Smartphone Style */
+@media all and (max-width: 500px) {
+  .post-details .flex {
+    .left {
+      margin: 20px 0;
+    }
+    .right {
+      flex-direction: column;
+    }
+    .created-at {
+      text-align: right;
+    }
+  }
+}
+
+/* Tablet and PC Style */
+@media all and (min-width: 501px) {
+  .post-details {
+    .post {
+      width: 70%;
+      .flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .right {
+          align-items: center;
+        }
+      }
+    }
+  }
+}

@@ -1,3 +1,4 @@
+/* Common Style */
 form {
   max-width: 800px;
   margin: 0 auto;
@@ -58,5 +59,12 @@ form {
   .check,
   .status {
     margin-top: 8px;
+  }
+}
+
+/* Smartphone Style */
+@media all and (max-width: 500px) {
+  .form-parts {
+    width: 100%;
   }
 }

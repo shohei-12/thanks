@@ -1,4 +1,7 @@
 ja:
+  time:
+    formats:
+      default: "%Y/%m/%d"
   errors:
     messages:
       carrierwave_processing_error: 処理できませんでした
