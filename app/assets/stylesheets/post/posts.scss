@@ -69,3 +69,10 @@
     }
   }
 }
+
+/* Smartphone Style */
+@media all and (max-width: 709px) {
+  .posts .post .content {
+    height: auto;
+  }
+}
