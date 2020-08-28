@@ -11,7 +11,7 @@
       <div class="right">
         <%= link_to comment.user.name, comment.user, class: 'commenter' %>
         <span class="created-at"><%= l comment.created_at %></span>
-        <p class="content"><%= comment.content %></p>
+        <p class="content"><%= safe_join(comment.content.split("\n"),tag(:br)) %></p>
         <div id="comment-like-<%= comment.id %>" class="comment-like">
           <%= render 'likes/comment_like', comment: comment %>
         </div>

@@ -1,7 +1,7 @@
 <div class="post">
   <span class="category category-color<%= @post.category.id %>"><%= @post.category.name %></span>
   <h2 class="title"><%= @post.title %></h2>
-  <p class="content"><%= @post.content %></p>
+  <p class="content"><%= safe_join(@post.content.split("\n"),tag(:br)) %></p>
   <div class="flex">
     <div class="left">
       <div id="post-like-<%= @post.id %>">
