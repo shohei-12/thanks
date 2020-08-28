@@ -1,25 +1,45 @@
-.post-details .comments {
-  margin-top: 50px;
-  .comment {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50px;
-    .right {
-      margin: -5px 0 0 20px;
-      width: 500px;
-      text-align-last: left;
-      .commenter {
-        font-size: 14px;
-        color: #333;
+/* Common Style */
+.post-details {
+  .comment-list {
+    margin-top: 40px;
+  }
+  .comments {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    padding: 0 20px;
+    margin-top: 30px;
+    .comment {
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
+      &:not(:last-child) {
+        border-bottom: 1px solid #b0bec5;
       }
-      p {
-        margin-top: 10px;
-        word-break: break-all;
-      }
-      .comment-like {
-        display: inline-block;
-        margin-right: 10px;
+      .right {
+        margin: -5px 0 0 20px;
+        width: 500px;
+        text-align: start;
+        .commenter {
+          font-size: 14px;
+          color: #333;
+        }
+        p {
+          margin-top: 10px;
+          word-break: break-all;
+        }
+        .comment-like {
+          display: inline-block;
+          margin-right: 10px;
+        }
       }
     }
+  }
+}
+
+/* Tablet and PC Style */
+@media all and (min-width: 620px) {
+  .post-details .comments {
+    width: 590px;
+    margin: 30px auto 0;
   }
 }
