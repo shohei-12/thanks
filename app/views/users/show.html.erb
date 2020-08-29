@@ -1,13 +1,15 @@
 <div class="user-details">
   <div class="user-info">
     <% if @user.image? %>
-      <%= image_tag @user.image.url, alt: 'アイコン画像', width: '200', height: '200' %>
+      <%= image_tag @user.image.url, alt: 'アイコン画像', width: '180', height: '180' %>
     <% else %>
-      <img alt="アイコン画像" src="/assets/default.png" width="200" height="200">
+      <img alt="アイコン画像" src="/assets/default.png" width="180" height="180">
     <% end %>
-    <p><%= @user.name %></p>
-    <span><%= @user.followings.count %>フォロー中</span>
-    <span><%= @user.followers.count %>フォロワー</span>
+    <span class="name"><%= @user.name %></span>
+    <div class="follow-follower">
+      <span><%= @user.followings.count %>フォロー中</span>
+      <span><%= @user.followers.count %>フォロワー</span>
+    </div>
   </div>
 
   <div class="follow-unfollow-btn">
