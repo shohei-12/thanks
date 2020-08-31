@@ -1,7 +1,11 @@
 <div class="popular-posts">
   <h1>人気の投稿</h1>
-
   <div class="posts">
     <%= render 'post', posts: @posts %>
+  </div>
+  <div class="floating">
+    <a href="/posts/new">
+      <i class="fas fa-pen"></i>
+    </a>
   </div>
 </div>
