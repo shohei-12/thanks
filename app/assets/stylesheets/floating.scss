@@ -1,31 +1,38 @@
+/* Common Style */
+.floating {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  a {
+    display: inline-block;
+    background-color: #f9a825;
+    color: #fff;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    transition: background-color 0.4s;
+    &:hover {
+      background-color: #f57f17;
+    }
+    i {
+      font-size: 35px;
+      line-height: 80px;
+    }
+  }
+}
+
 /* Smartphone Style */
 @media all and (max-width: 709px) {
   .floating {
-    position: fixed;
     right: 20px;
     bottom: 20px;
     a {
-      display: inline-block;
-      background-color: #f9a825;
-      color: #fff;
       width: 60px;
       height: 60px;
-      border-radius: 50%;
-      transition: background-color 0.4s;
-      &:hover {
-        background-color: #f57f17;
-      }
       i {
         font-size: 23px;
         line-height: 60px;
       }
     }
-  }
-}
-
-/* Tablet and PC Style */
-@media all and (min-width: 710px) {
-  .floating {
-    display: none;
   }
 }
