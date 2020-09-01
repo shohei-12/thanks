@@ -1,6 +1,6 @@
 $(".comments").prepend("<%= j(render 'comment', { comment: @comment }) %>");
 
-$(".error-message").html("<%= j(render 'error_messages', { comment: @comment }) %>");
+$(".error-message").html("<%= j(render 'error_message', { comment: @comment }) %>");
 
 <% if @comment.valid? %>
   $("textarea").val("");

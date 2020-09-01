@@ -47,3 +47,49 @@
     word-break: break-all;
   }
 }
+
+.posts,
+.my-posts,
+.like-posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.posts .post,
+.my-posts .my-post,
+.like-posts .like-post {
+  margin: 20px;
+  width: 300px;
+  .content {
+    height: 135px;
+  }
+  .details {
+    font-size: 14px;
+    s &:hover {
+      text-decoration: underline;
+    }
+  }
+  .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    .comment i {
+      color: #ffb300;
+    }
+    .like i {
+      color: #e91e63;
+    }
+  }
+}
+
+/* Smartphone Style */
+@media all and (max-width: 709px) {
+  .posts .post,
+  .my-posts .my-post,
+  .like-posts .like-post {
+    .content {
+      height: auto;
+    }
+  }
+}
