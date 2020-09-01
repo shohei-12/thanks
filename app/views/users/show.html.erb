@@ -6,13 +6,9 @@
       <img alt="アイコン画像" src="/assets/default.png" width="180" height="180">
     <% end %>
     <span class="name"><%= @user.name %></span>
-    <div class="follow-follower">
-      <span><%= @user.followings.count %>フォロー中</span>
-      <span><%= @user.followers.count %>フォロワー</span>
-    </div>
   </div>
 
-  <div class="follow-unfollow-btn">
+  <div class="follow-unfollow-btn-<%= @user.id %>">
     <%= render 'relationships/follow_unfollow_btn', user: @user %>
   </div>
 
@@ -26,14 +22,35 @@
       <%= paginate @my_posts %>
       <%= render 'shared/infinite_scroll1' %>
     </div>
+
     <input id="tab2" type="radio" name="tab" class="tab-switch">
-    <label class="tab-label" for="tab2">いいね <%= @like_posts.total_count %></label>
+    <label class="tab-label" for="tab2">フォロー中 <%= @followings.total_count %></label>
     <div class="tab-content tc2">
+      <div class="followings">
+        <%= render 'relationships/following' %>
+      </div>
+      <%= paginate @followings %>
+      <%= render 'shared/infinite_scroll2' %>
+    </div>
+
+    <input id="tab3" type="radio" name="tab" class="tab-switch">
+    <label class="tab-label" for="tab3">フォロワー <%= @followers.total_count %></label>
+    <div class="tab-content tc3">
+      <div class="followers">
+        <%= render 'relationships/follower' %>
+      </div>
+      <%= paginate @followers %>
+      <%= render 'shared/infinite_scroll3' %>
+    </div>
+
+    <input id="tab4" type="radio" name="tab" class="tab-switch">
+    <label class="tab-label" for="tab4">いいね <%= @like_posts.total_count %></label>
+    <div class="tab-content tc4">
       <div class="like-posts">
         <%= render 'posts/like_posts' %>
       </div>
       <%= paginate @like_posts %>
-      <%= render 'shared/infinite_scroll2' %>
+      <%= render 'shared/infinite_scroll4' %>
     </div>
   </div>
   <div class="floating">

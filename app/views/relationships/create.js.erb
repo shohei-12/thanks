@@ -1,1 +1,1 @@
-$(".follow-unfollow-btn").html("<%= j(render 'follow_unfollow_btn', { user: @user }) %>");
+$(".follow-unfollow-btn-<%= @user.id %>").html("<%= j(render 'follow_unfollow_btn', { user: @user }) %>");

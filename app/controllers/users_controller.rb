@@ -24,6 +24,8 @@ class UsersController < ApplicationController
                   @user.posts.where(status: 1).page(params[:page]).per(20).order(created_at: :desc)
                 end
     @like_posts = @user.like_posts.page(params[:page]).per(20).order(created_at: :desc)
+    @followings = @user.followings.page(params[:page]).per(20).order(created_at: :desc)
+    @followers = @user.followers.page(params[:page]).per(20).order(created_at: :desc)
   end
 
   def edit
