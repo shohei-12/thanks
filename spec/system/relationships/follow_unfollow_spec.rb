@@ -6,13 +6,13 @@ RSpec.describe 'FollowUnfollow', js: true, type: :system do
     test2 = create(:test2)
     log_in test1
     visit user_path(test2)
-    click_button 'フォローする'
-    expect(page).to have_button 'フォローを解除する'
+    click_button 'フォロー'
+    expect(page).to have_button 'フォロー中'
     relationship = Relationship.first
     expect(relationship.user_id).to eq test1.id
     expect(relationship.follow_id).to eq test2.id
-    click_button 'フォローを解除する'
-    expect(page).to have_button 'フォローする'
+    click_button 'フォロー中'
+    expect(page).to have_button 'フォロー'
     expect(Relationship.count).to eq 0
   end
 end
