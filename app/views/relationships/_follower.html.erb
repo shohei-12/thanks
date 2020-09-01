@@ -1,0 +1,15 @@
+<% @followers.each do |follower| %>
+  <div class="follower">
+    <a href="/users/<%= follower.id %>" class="image">
+      <% if follower.image? %>
+        <%= image_tag follower.image.url, alt: 'アイコン画像', width: '120', height: '120' %>
+      <% else %>
+        <img alt="アイコン画像" src="/assets/default.png" width="120" height="120">
+      <% end %>
+    </a>
+    <%= link_to follower.name, follower, class: 'name' %>
+    <div class="follow-unfollow-btn-<%= follower.id %>">
+      <%= render 'relationships/follow_unfollow_btn', user: follower %>
+    </div>
+  </div>
+<% end %>

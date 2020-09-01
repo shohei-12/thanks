@@ -73,7 +73,7 @@
   background-color: rgba(0, 0, 0, 0.1);
   border: none;
   border-radius: 4px;
-  width: 100%;
+  width: 70%;
   height: 43px;
   margin-top: 20px;
   &:focus {
@@ -82,7 +82,7 @@
 }
 
 /* Tablet and PC Style */
-@media all and (min-width: 480px) {
+@media all and (min-width: 670px) {
   .view-more-button {
     width: 450px;
   }
