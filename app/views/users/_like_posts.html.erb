@@ -1,6 +1,11 @@
 <% @like_posts.each do |post| %>
   <div class="like-post">
     <span class="category category-color<%= post.category.id %>"><%= post.category.name %></span>
+    <% if post.status == 0 %>
+      <div class="private">
+        <span>非公開</span>
+      </div>
+    <% end %>
     <h2 class="title"><%= post.title.truncate(24) %></h2>
     <% if post.content.length > 76 %>
       <p class="content"><%= post.content.slice(0..75) %>...</p>
