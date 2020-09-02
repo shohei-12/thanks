@@ -20,7 +20,8 @@ class PostsController < ApplicationController
   end
 
   def popular
-    @posts = Post.popular
+    posts_sorted = Post.where(status: 1).order(created_at: :desc).sort { |a, b| b.likes.count <=> a.likes.count }
+    @posts = Kaminari.paginate_array(posts_sorted).page(params[:page]).per(20)
   end
 
   def search
