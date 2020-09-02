@@ -1,6 +1,11 @@
 <div class="post-details">
   <div class="post">
     <span class="category category-color<%= @post.category.id %>"><%= @post.category.name %></span>
+    <% if @post.status == 0 %>
+      <div class="private">
+        <span>非公開</span>
+      </div>
+    <% end %>
     <h2 class="title"><%= @post.title %></h2>
     <p class="content"><%= safe_join(@post.content.split("\n"),tag(:br)) %></p>
     <div class="flex">
