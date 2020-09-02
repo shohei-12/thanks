@@ -23,7 +23,11 @@ class UsersController < ApplicationController
                 else
                   @user.posts.where(status: 1).page(params[:page]).per(20).order(created_at: :desc)
                 end
-    @like_posts = @user.like_posts.page(params[:page]).per(20).order(created_at: :desc)
+    @like_posts = if current_user?(@user)
+                    @user.like_posts.page(params[:page]).per(20).order(created_at: :desc)
+                  else
+                    @user.like_posts.where(status: 1).page(params[:page]).per(20).order(created_at: :desc)
+                  end
     @followings = @user.followings.page(params[:page]).per(20).order(created_at: :desc)
     @followers = @user.followers.page(params[:page]).per(20).order(created_at: :desc)
   end
