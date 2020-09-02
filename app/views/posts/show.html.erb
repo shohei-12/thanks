@@ -6,7 +6,15 @@
         <span>非公開</span>
       </div>
     <% end %>
-    <h2 class="title"><%= @post.title %></h2>
+    <% if current_user?(@post.user) %>
+      <% if @post.check == 1 %>
+        <h2 class="title"><i class="fas fa-star"></i><%= @post.title %></h2>
+      <% else %>
+        <h2 class="title"><%= @post.title %></h2>
+      <% end %>
+    <% else %>
+      <h2 class="title"><%= @post.title %></h2>
+    <% end %>
     <p class="content"><%= safe_join(@post.content.split("\n"),tag(:br)) %></p>
     <div class="flex">
       <div class="left">
