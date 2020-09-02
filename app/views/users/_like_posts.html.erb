@@ -6,7 +6,15 @@
         <span>非公開</span>
       </div>
     <% end %>
-    <h2 class="title"><%= post.title.truncate(24) %></h2>
+    <% if current_user?(@user) %>
+      <% if post.check == 1 %>
+        <h2 class="title"><i class="fas fa-star"></i><%= post.title.truncate(23) %></h2>
+      <% else %>
+        <h2 class="title"><%= post.title.truncate(23) %></h2>
+      <% end %>
+    <% else %>
+      <h2 class="title"><%= post.title.truncate(23) %></h2>
+    <% end %>
     <% if post.content.length > 76 %>
       <p class="content"><%= post.content.slice(0..75) %>...</p>
     <% else %>

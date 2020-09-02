@@ -35,6 +35,7 @@
       <%= f.radio_button :check, '0', required: true %>
       <%= f.label :check, "まだです", value: 0 %>
     </div>
+    <p>「はい」を選択すると<i class="fas fa-star"></i>がつきます。（他のユーザーからは見えません）</p>
     <% if @post.errors.include?(:check) %>
       <p class="error-message"><%= @post.errors.full_messages_for(:check).first %></p>
     <% end %>
