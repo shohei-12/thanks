@@ -1,7 +1,12 @@
 <div class="popular-posts">
-  <h1>人気の投稿</h1>
+  <div class="category-search">
+    <%= render 'category_menu' %>
+    <%= render 'search_form' %>
+  </div>
   <div class="posts">
     <%= render 'posts', posts: @posts %>
   </div>
+  <%= paginate @posts %>
+  <%= render 'shared/infinite_scroll1' %>
   <%= render 'shared/floating_btn' %>
 </div>
