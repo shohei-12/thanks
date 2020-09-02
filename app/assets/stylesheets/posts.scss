@@ -83,7 +83,8 @@
   }
 }
 
-.my-posts .my-post .private {
+.my-posts .my-post .private,
+.post-details .post .private {
   text-align: right;
   position: relative;
   top: -11px;
@@ -109,7 +110,8 @@
 }
 
 @media all and (max-width: 359px) {
-  .my-posts .my-post .private {
+  .my-posts .my-post .private,
+  .post-details .post .private {
     text-align: left;
     top: 18px;
     margin-bottom: 0;
