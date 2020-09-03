@@ -1,7 +1,11 @@
 /* Common Style */
 .post-details {
   .comment-list {
+    display: inline-block;
     margin-top: 40px;
+  }
+  .comment-sort {
+    display: inline-block;
   }
   .comments {
     background-color: #fff;

@@ -35,16 +35,24 @@ class PostsController < ApplicationController
   end
 
   def show
-    if current_user.posts.pluck(:id).include?(params[:id].to_i)
-      @post = Post.find(params[:id])
-      @comment = Comment.new
-      @comments = @post.comments.page(params[:page]).per(20).order(created_at: :desc)
-    elsif Post.public_posts.include?(params[:id].to_i)
-      @post = Post.find(params[:id])
-      @comment = Comment.new
-      @comments = @post.comments.page(params[:page]).per(20).order(created_at: :desc)
-    else
-      redirect_to root_path
+    respond_to do |format|
+      format.html do
+        if current_user.posts.pluck(:id).include?(params[:id].to_i)
+          @post = Post.find(params[:id])
+          @comment = Comment.new
+          @comments = @post.comments.page(params[:page]).per(20).order(created_at: :desc)
+        elsif Post.public_posts.include?(params[:id].to_i)
+          @post = Post.find(params[:id])
+          @comment = Comment.new
+          @comments = @post.comments.page(params[:page]).per(20).order(created_at: :desc)
+        else
+          redirect_to root_path
+        end
+      end
+      format.js do
+        post = Post.find(params[:id])
+        @comments = post.comments.page(params[:page]).per(20).order(created_at: :desc)
+      end
     end
   end
 
