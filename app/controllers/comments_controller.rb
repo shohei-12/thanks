@@ -13,6 +13,12 @@ class CommentsController < ApplicationController
     @comment.destroy
   end
 
+  def like_sort
+    post = Post.find(params[:post_id])
+    comments_sorted = post.comments.order(created_at: :desc).sort { |a, b| b.likes.count <=> a.likes.count }
+    @comments = Kaminari.paginate_array(comments_sorted).page(params[:page]).per(20)
+  end
+
   private
 
   def comment_params

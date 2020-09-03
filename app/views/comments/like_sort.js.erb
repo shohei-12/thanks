@@ -1,0 +1,14 @@
+$(".ajax").html("<%= j(render 'like_sort') %>");
+
+$(".comments").infiniteScroll({
+  path: ".pagination a[rel='next']",
+  append: ".comment",
+  history: false,
+  button: ".vmb1",
+  scrollThreshold: false,
+  status: ".pls1",
+});
+
+if (!$(".pagination").length) {
+  $(".view-more-button").hide();
+}
