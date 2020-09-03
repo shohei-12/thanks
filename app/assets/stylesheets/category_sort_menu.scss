@@ -1,0 +1,84 @@
+/* Common Style */
+.category-menu,
+.sort-menu {
+  cursor: pointer;
+  .menu-title {
+    background-color: #81c784;
+    color: #fff;
+    padding: 10px;
+    i {
+      margin-left: 6px;
+    }
+  }
+  .sub-menu {
+    display: none;
+    text-align: start;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 3px 6px #ccc;
+    z-index: 10;
+    a {
+      display: inline-block;
+      padding-left: 10px;
+      width: 100%;
+      color: #333;
+    }
+  }
+  &:hover .sub-menu {
+    display: block;
+  }
+}
+
+.category-menu {
+  margin-right: 15px;
+  .sub-menu {
+    width: 228px;
+    .menu1:hover {
+      color: #fff;
+      background-color: #f06292;
+    }
+    .menu2:hover {
+      color: #fff;
+      background-color: #b388ff;
+    }
+    .menu3:hover {
+      color: #fff;
+      background-color: #3f51b5;
+    }
+    .menu4:hover {
+      color: #fff;
+      background-color: #64b5f6;
+    }
+    .menu5:hover {
+      color: #fff;
+      background-color: #00695c;
+    }
+    .menu6:hover {
+      color: #fff;
+      background-color: #8bc34a;
+    }
+    .menu7:hover {
+      color: #fff;
+      background-color: #9e9d24;
+    }
+    .menu8:hover {
+      color: #fff;
+      background-color: #fb8c00;
+    }
+    .menu9:hover {
+      color: #fff;
+      background-color: #6d4c41;
+    }
+    .menu10:hover {
+      color: #fff;
+      background-color: #546e7a;
+    }
+  }
+}
+
+.sort-menu .sub-menu a {
+  padding: 10px;
+  &:hover {
+    background-color: #eee;
+  }
+}

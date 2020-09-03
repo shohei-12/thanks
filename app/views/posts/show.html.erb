@@ -52,7 +52,15 @@
   </div>
 
   <h2 class="comment-list">コメント一覧</h2>
-  <%= link_to 'いいね数順', comment_like_sort_path(post_id: @post.id), remote: true %>
+  <div class="sort-menu comment-sort">
+    <span class="menu-title">並べ替え<%= icon('fas', 'caret-down') %></span>
+    <div class="sub-menu">
+      <ul>
+        <li><%= link_to '新着順', post_path(@post), remote: true %></li>
+        <li><%= link_to 'いいね数順', comment_like_sort_path(post_id: @post.id), remote: true %></li>
+      </ul>
+    </div>
+  </div>
   <div class="ajax">
     <div class="comments">
       <% @comments.each do |comment| %>
