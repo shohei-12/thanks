@@ -1,0 +1,144 @@
+/* Common Style */
+.menu-search {
+  display: flex;
+  .menus {
+    display: flex;
+    .category-menu,
+    .sort-menu {
+      cursor: pointer;
+      .menu-title {
+        display: table-cell;
+        height: 50px;
+        vertical-align: middle;
+        background-color: #81c784;
+        color: #fff;
+        padding: 10px;
+        i {
+          margin-left: 6px;
+        }
+      }
+      .sub-menu {
+        display: none;
+        text-align: start;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0 3px 6px #ccc;
+        z-index: 10;
+        a {
+          display: inline-block;
+          padding-left: 10px;
+          width: 100%;
+          color: #333;
+        }
+      }
+      &:hover .sub-menu {
+        display: block;
+      }
+    }
+    .category-menu .sub-menu {
+      width: 228px;
+      .menu1:hover {
+        color: #fff;
+        background-color: #f06292;
+      }
+      .menu2:hover {
+        color: #fff;
+        background-color: #b388ff;
+      }
+      .menu3:hover {
+        color: #fff;
+        background-color: #3f51b5;
+      }
+      .menu4:hover {
+        color: #fff;
+        background-color: #64b5f6;
+      }
+      .menu5:hover {
+        color: #fff;
+        background-color: #00695c;
+      }
+      .menu6:hover {
+        color: #fff;
+        background-color: #8bc34a;
+      }
+      .menu7:hover {
+        color: #fff;
+        background-color: #9e9d24;
+      }
+      .menu8:hover {
+        color: #fff;
+        background-color: #fb8c00;
+      }
+      .menu9:hover {
+        color: #fff;
+        background-color: #6d4c41;
+      }
+      .menu10:hover {
+        color: #fff;
+        background-color: #546e7a;
+      }
+    }
+    .sort-menu {
+      margin-left: 15px;
+      .sub-menu a {
+        padding: 10px;
+        &:hover {
+          background-color: #eee;
+        }
+      }
+    }
+  }
+  .search-form {
+    display: flex;
+    input[type="text"] {
+      width: 100%;
+      padding: 15px;
+      font-size: 16px;
+      border: 1px solid #ced4da;
+      border-right: none;
+      outline: none;
+    }
+    button {
+      padding: 0 20px;
+      border: 1px solid #ced4da;
+      border-left: none;
+      background-color: #81c784;
+      color: #fff;
+      cursor: pointer;
+      &:hover {
+        color: #333;
+      }
+    }
+  }
+}
+
+/* Smartphone and Tablet Style */
+@media all and (max-width: 809px) {
+  .menu-search {
+    flex-direction: column;
+    .menus {
+      order: 2;
+    }
+    .search-form {
+      order: 1;
+      margin: 0 0 20px;
+    }
+  }
+}
+
+/* Tablet and PC Style */
+@media all and (min-width: 810px) {
+  .menu-search {
+    justify-content: space-between;
+    padding: 0 50px;
+    .search-form {
+      margin: 0;
+    }
+  }
+}
+
+@media all and (min-width: 500px) {
+  .menu-search .search-form {
+    width: 60%;
+  }
+}
