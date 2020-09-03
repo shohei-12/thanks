@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   delete '/post/unlike/:id', to: 'likes#post_destroy', as: 'post_unlike'
   post '/comment/like/:id', to: 'likes#comment_create', as: 'comment_like'
   delete '/comment/unlike/:id', to: 'likes#comment_destroy', as: 'comment_unlike'
+  get '/comment/like/sort', to: 'comments#like_sort', as: 'comment_like_sort'
   resources :users
   resources :posts, except: %i[index]
   resources :relationships, only: %i[create destroy]

@@ -1,0 +1,26 @@
+<div class="comments">
+  <% @comments.each do |comment| %>
+    <div class="comment" id="comment-<%= comment.id %>">
+      <a href="/users/<%= comment.user.id %>">
+        <% if comment.user.image? %>
+          <%= image_tag comment.user.image.url, alt: 'アイコン画像', width: '50', height: '50' %>
+        <% else %>
+          <img alt="アイコン画像" src="/assets/default.png" width="50" height="50">
+        <% end %>
+      </a>
+      <div class="right">
+        <%= link_to comment.user.name, comment.user, class: 'commenter' %>
+        <span class="created-at"><%= l comment.created_at %></span>
+        <p class="content"><%= safe_join(comment.content.split("\n"),tag(:br)) %></p>
+        <div id="comment-like-<%= comment.id %>" class="comment-like">
+          <%= render 'likes/comment_like', comment: comment %>
+        </div>
+        <% if current_user?(comment.user) %>
+          <%= link_to '削除する', comment, method: :delete, data: { confirm: '本当に削除しますか？' }, remote: true, class: 'delete' %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= paginate @comments %>
+<%= render 'shared/infinite_scroll1' %>
