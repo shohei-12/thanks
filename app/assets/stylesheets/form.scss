@@ -1,14 +1,50 @@
 /* Common Style */
-form {
+.form {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
   max-width: 800px;
   margin: 0 auto;
-  button.submit {
-    background-color: #4db6ac;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  h1 {
+    color: #fff;
+    background-color: #81c784;
+    border-radius: 10px 10px 0 0;
+    padding: 10px 0;
+    font-size: 28px;
+  }
+  form {
+    padding: 0 10px;
+  }
+  .submit,
+  .easy-login {
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: #81c784;
     font-size: 16px;
     cursor: pointer;
-    border: none;
+    border: 0;
+    transition: opacity 0.4s;
+    &:hover {
+      opacity: 0.7;
+    }
     &:focus {
       outline: none;
+    }
+    i {
+      margin-left: 3px;
+    }
+  }
+  .easy-login {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #f9a825;
+  }
+  .user-signup {
+    margin-bottom: 0;
+    a:hover {
+      text-decoration: underline;
     }
   }
 }
@@ -16,7 +52,7 @@ form {
 .form-parts {
   width: 68%;
   margin: 0 auto 30px;
-  text-align: left;
+  text-align: start;
   span.required,
   span.optional {
     color: #fff;
@@ -36,21 +72,25 @@ form {
   input[type="file"],
   select,
   textarea {
+    background-color: #eee;
     width: 100%;
     padding: 15px;
     margin-top: 8px;
     font-size: 16px;
-    border: 1px solid #ced4da;
+    border: 1px solid #bdbdbd;
     border-radius: 4px;
     outline: none;
+    &:focus {
+      border-color: #4dabf7;
+    }
   }
   input[type="file"] {
-    border: none;
+    background-color: transparent;
+    border: 0;
     padding-left: 0;
   }
   select {
-    padding-top: 10px;
-    height: 50px;
+    padding-top: 14px;
   }
   .error-message {
     color: #ef5350;
@@ -59,6 +99,9 @@ form {
   .check,
   .status {
     margin-top: 8px;
+  }
+  .explanation {
+    font-weight: bold;
   }
 }
 
