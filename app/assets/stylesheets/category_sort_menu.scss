@@ -1,9 +1,11 @@
+@import "variable";
+
 /* Common Style */
 .category-menu,
 .sort-menu {
   cursor: pointer;
   .menu-title {
-    background-color: #81c784;
+    background-color: $main-color;
     color: #fff;
     padding: 10px;
     i {
@@ -33,45 +35,38 @@
   margin-right: 15px;
   .sub-menu {
     width: 228px;
-    .menu1:hover {
+    .menu:hover {
       color: #fff;
-      background-color: #f06292;
+    }
+    .menu1:hover {
+      background-color: $category-color-1;
     }
     .menu2:hover {
-      color: #fff;
-      background-color: #b388ff;
+      background-color: $category-color-2;
     }
     .menu3:hover {
-      color: #fff;
-      background-color: #3f51b5;
+      background-color: $category-color-3;
     }
     .menu4:hover {
-      color: #fff;
-      background-color: #64b5f6;
+      background-color: $category-color-4;
     }
     .menu5:hover {
-      color: #fff;
-      background-color: #00695c;
+      background-color: $category-color-5;
     }
     .menu6:hover {
-      color: #fff;
-      background-color: #8bc34a;
+      background-color: $category-color-6;
     }
     .menu7:hover {
-      color: #fff;
-      background-color: #9e9d24;
+      background-color: $category-color-7;
     }
     .menu8:hover {
-      color: #fff;
-      background-color: #fb8c00;
+      background-color: $category-color-8;
     }
     .menu9:hover {
-      color: #fff;
-      background-color: #6d4c41;
+      background-color: $category-color-9;
     }
     .menu10:hover {
-      color: #fff;
-      background-color: #546e7a;
+      background-color: $category-color-10;
     }
   }
 }

@@ -1,3 +1,5 @@
+@import "variable";
+
 /* Common Style */
 .form {
   background-color: #fff;
@@ -8,7 +10,7 @@
   padding-bottom: 20px;
   h1 {
     color: #fff;
-    background-color: #81c784;
+    background-color: $main-color;
     border-radius: 10px 10px 0 0;
     padding: 10px 0;
     font-size: 28px;
@@ -21,7 +23,7 @@
     color: #fff;
     padding: 8px 16px;
     border-radius: 4px;
-    background-color: #81c784;
+    background-color: $main-color;
     font-size: 16px;
     cursor: pointer;
     border: 0;
@@ -39,7 +41,7 @@
   .easy-login {
     display: inline-block;
     margin-top: 20px;
-    background-color: #f9a825;
+    background-color: $accent-color;
   }
   .user-signup {
     margin-bottom: 0;

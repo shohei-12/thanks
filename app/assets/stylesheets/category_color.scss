@@ -1,75 +1,70 @@
+@import "variable";
+
 /* Common Style */
 .category-color1 {
-  background-color: #f06292;
-  color: #fff;
+  background-color: $category-color-1;
   &:before {
-    background-color: #f06292;
+    background-color: $category-color-1;
   }
   &:after {
-    background-color: #ad1457;
+    background-color: #c2185b;
   }
 }
 
 .category-color2 {
-  background-color: #b388ff;
-  color: #fff;
+  background-color: $category-color-2;
   &:before {
-    background-color: #b388ff;
+    background-color: $category-color-2;
   }
   &:after {
-    background-color: #5e35b1;
+    background-color: #7b1fa2;
   }
 }
 
 .category-color3 {
-  background-color: #3f51b5;
-  color: #fff;
+  background-color: $category-color-3;
   &:before {
-    background-color: #3f51b5;
+    background-color: $category-color-3;
   }
   &:after {
-    background-color: #1a237e;
+    background-color: #303f9f;
   }
 }
 
 .category-color4 {
-  background-color: #64b5f6;
-  color: #fff;
+  background-color: $category-color-4;
   &:before {
-    background-color: #64b5f6;
+    background-color: $category-color-4;
   }
   &:after {
-    background-color: #1976d2;
+    background-color: #0288d1;
   }
 }
 
 .category-color5 {
-  background-color: #00695c;
-  color: #fff;
+  background-color: $category-color-5;
   &:before {
-    background-color: #00695c;
+    background-color: $category-color-5;
   }
   &:after {
-    background-color: #004d40;
+    background-color: #00796b;
   }
 }
 
 .category-color6 {
-  background-color: #8bc34a;
-  color: #fff;
+  background-color: $category-color-6;
   &:before {
-    background-color: #8bc34a;
+    background-color: $category-color-6;
   }
   &:after {
-    background-color: #558b2f;
+    background-color: #689f38;
   }
 }
 
 .category-color7 {
-  background-color: #9e9d24;
-  color: #fff;
+  background-color: $category-color-7;
   &:before {
-    background-color: #9e9d24;
+    background-color: $category-color-7;
   }
   &:after {
     background-color: #827717;
@@ -77,34 +72,31 @@
 }
 
 .category-color8 {
-  background-color: #fb8c00;
-  color: #fff;
+  background-color: $category-color-8;
   &:before {
-    background-color: #fb8c00;
+    background-color: $category-color-8;
   }
   &:after {
-    background-color: #e65100;
+    background-color: #e64a19;
   }
 }
 
 .category-color9 {
-  background-color: #6d4c41;
-  color: #fff;
+  background-color: $category-color-9;
   &:before {
-    background-color: #6d4c41;
+    background-color: $category-color-9;
   }
   &:after {
-    background-color: #4e342e;
+    background-color: #5d4037;
   }
 }
 
 .category-color10 {
-  background-color: #546e7a;
-  color: #fff;
+  background-color: $category-color-10;
   &:before {
-    background-color: #546e7a;
+    background-color: $category-color-10;
   }
   &:after {
-    background-color: #37474f;
+    background-color: #455a64;
   }
 }

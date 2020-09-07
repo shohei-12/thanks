@@ -1,3 +1,5 @@
+@import "variable";
+
 /* Common Style */
 .followings,
 .followers {
@@ -27,15 +29,15 @@
 
 .follow-btn {
   cursor: pointer;
-  color: #81c784;
+  color: $main-color;
   font-weight: bold;
   background-color: #fff;
-  border: 1px solid #81c784;
+  border: 1px solid $main-color;
   padding: 7px 20px;
   border-radius: 25px;
   &:hover {
     color: #fff;
-    background-color: #81c784;
+    background-color: $main-color;
   }
   &:focus {
     outline: none;
@@ -46,7 +48,7 @@
   cursor: pointer;
   color: #fff;
   font-weight: bold;
-  background-color: #81c784;
+  background-color: $main-color;
   border: 0;
   padding: 7px 20px;
   border-radius: 25px;

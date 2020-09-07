@@ -1,3 +1,5 @@
+@import "variable";
+
 /* Common Style */
 .floating {
   position: fixed;
@@ -5,7 +7,7 @@
   bottom: 50px;
   a {
     display: inline-block;
-    background-color: #f9a825;
+    background-color: $accent-color;
     color: #fff;
     width: 80px;
     height: 80px;
