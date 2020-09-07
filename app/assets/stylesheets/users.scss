@@ -1,3 +1,5 @@
+@import "variable";
+
 /* Common Style */
 .user-details .user-info {
   .name {
@@ -35,7 +37,7 @@
 }
 
 .tab-switch:checked + .tab-label {
-  background-color: #81c784;
+  background-color: $main-color;
 }
 .tab-switch:checked + .tab-label + .tab-content {
   height: auto;
@@ -73,7 +75,7 @@
     content: "";
     width: 100%;
     height: 3px;
-    background-color: #81c784;
+    background-color: $main-color;
     display: block;
     order: -1;
   }

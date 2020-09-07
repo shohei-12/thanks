@@ -1,3 +1,5 @@
+@import "variable";
+
 /* Common Style */
 .posts .post,
 .post-details .post,
@@ -9,6 +11,7 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
   .category {
     display: inline-block;
+    color: #fff;
     position: absolute;
     left: 0;
     top: 5px;
@@ -78,7 +81,7 @@
       color: #ffb300;
     }
     .like i {
-      color: #e91e63;
+      color: $heart-color;
     }
   }
 }

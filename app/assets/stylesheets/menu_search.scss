@@ -1,3 +1,5 @@
+@import "variable";
+
 /* Common Style */
 .menu-search {
   display: flex;
@@ -26,7 +28,7 @@
       padding: 0 20px;
       border: 1px solid #ced4da;
       border-left: none;
-      background-color: #81c784;
+      background-color: $main-color;
       color: #fff;
       cursor: pointer;
       &:hover {
