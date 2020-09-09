@@ -16,6 +16,7 @@
       <h2 class="title"><%= @post.title %></h2>
     <% end %>
     <p class="content"><%= safe_join(@post.content.split("\n"),tag(:br)) %></p>
+    <span class="created-at"><%= l @post.created_at %></span>
     <div class="flex">
       <div class="left">
         <div id="post-like-<%= @post.id %>">
@@ -35,19 +36,18 @@
           <% end %>
         </a>
         <%= link_to @post.user.name, @post.user, class: 'contributor' %>
-        <span class="created-at"><%= l @post.created_at %></span>
       </div>
     </div>
   </div>
 
-  <div class="comment-form">
+  <div class="form">
     <%= form_with(model: @comment) do |f| %>
       <%= f.hidden_field :post_id, value: @post.id %>
       <div class="form-parts">
         <%= f.text_area :content, rows: '4', placeholder: 'コメントを書く' %>
         <p class="error-message"></p>
       </div>
-      <button class="btn submit">コメントする</button>
+      <button class="submit">コメントする<i class="fas fa-paper-plane"></i></button>
     <% end %>
   </div>
 
