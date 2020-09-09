@@ -3,15 +3,27 @@
 /* Common Style */
 .post-details {
   .post {
+    max-width: 738px;
     margin: 0 auto 50px;
     .content {
       text-align: start;
+      margin-bottom: 0;
+    }
+    .created-at {
+      display: block;
+      margin-top: 10px;
+      text-align: right;
     }
     .flex {
+      display: flex;
+      justify-content: space-between;
+      .left {
+        align-self: flex-end;
+      }
       .right {
-        display: flex;
+        position: relative;
+        top: 10px;
         .contributor {
-          margin: 0 10px;
           color: #333;
         }
       }
@@ -31,36 +43,76 @@
   .created-at {
     font-size: 12px;
   }
-}
-
-/* Smartphone Style */
-@media all and (max-width: 767px) {
-  .post-details .flex {
-    .left {
-      margin: 20px 0;
+  .form {
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    .form-parts {
+      margin-bottom: 15px;
     }
-    .right {
-      flex-direction: column;
-    }
-    .created-at {
-      text-align: right;
+  }
+  .comment-list {
+    display: inline-block;
+    margin-top: 40px;
+  }
+  .comment-sort {
+    display: inline-block;
+  }
+  .comments {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    padding: 0 20px;
+    .comment {
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
+      &:not(:last-child) {
+        border-bottom: 1px solid #b0bec5;
+      }
+      .right {
+        margin: -5px 0 0 20px;
+        width: 500px;
+        text-align: start;
+        .commenter {
+          font-size: 14px;
+          color: #333;
+        }
+        .content {
+          margin-top: 0;
+          word-break: break-all;
+        }
+        .comment-like {
+          display: inline-block;
+          margin-right: 10px;
+        }
+      }
     }
   }
 }
 
+/* Smartphone Style */
+@media all and (max-width: 499px) {
+  .post-details .flex .right .contributor {
+    display: none;
+  }
+}
+
 /* Tablet and PC Style */
-@media all and (min-width: 768px) {
-  .post-details {
-    .post {
-      width: 738px;
-      .flex {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .right {
-          align-items: center;
-        }
+@media all and (min-width: 500px) {
+  .post-details .flex {
+    .right {
+      display: flex;
+      align-items: center;
+      .contributor {
+        margin-left: 10px;
       }
     }
+  }
+}
+
+@media all and (min-width: 620px) {
+  .post-details .comments {
+    width: 590px;
+    margin: 0 auto;
   }
 }
