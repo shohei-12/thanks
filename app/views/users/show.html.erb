@@ -7,6 +7,10 @@
     <% end %>
     <span class="name"><%= @user.name %></span>
   </div>
+  <% if current_user?(@user) %>
+    <%= link_to '編集する', edit_user_path, class: 'btn a-btn' %>
+    <%= link_to '退会する', @user, method: :delete, data: { confirm: '本当に退会しますか？' }, class: 'btn a-btn' %>
+  <% end %>
 
   <div class="follow-unfollow-btn-<%= @user.id %>">
     <%= render 'relationships/follow_unfollow_btn', user: @user %>
