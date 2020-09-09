@@ -70,6 +70,24 @@ p {
   line-height: 1.7;
 }
 
+.btn {
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: opacity 0.4s;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.m-btn {
+  background-color: $main-color;
+}
+
+.a-btn {
+  background-color: $accent-color;
+}
+
 .pagination {
   display: none;
 }
