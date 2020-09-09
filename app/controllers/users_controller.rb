@@ -38,7 +38,10 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
+    if @user.id == 1
+      flash.now[:danger] = 'ゲストユーザーはプロフィールを編集することができません'
+      render 'edit'
+    elsif @user.update(user_params)
       redirect_to @user
     else
       render 'edit'
@@ -51,8 +54,15 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-    redirect_to users_path
+    if @user.id == 1
+      flash[:danger] = 'ゲストユーザーは退会することができません'
+      redirect_to @user
+    else
+      log_out if logged_in?
+      @user.destroy
+      flash[:success] = '退会しました'
+      redirect_to root_path
+    end
   end
 
   private
