@@ -1,11 +1,9 @@
 <% flash.each do |msg_type, msg| %>
-  <% if msg_type == 'success' %>
-    <div class="success-message">
-      <p><%= msg %></p>
-    </div>
-  <% elsif msg_type == 'danger' %>
-    <div class="danger-message">
-      <p><%= msg %></p>
-    </div>
-  <% end %>
+  <div id="flash-message">
+    <% if msg_type == 'success' %>
+      <p class="success-message"><%= msg %></p>
+    <% elsif msg_type == 'danger' %>
+      <p class="danger-message"><%= msg %></p>
+    <% end %>
+  </div>
 <% end %>
