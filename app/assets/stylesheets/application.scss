@@ -96,6 +96,23 @@ p {
   color: #ffeb3b;
 }
 
+#flash-message {
+  .success-message,
+  .danger-message {
+    position: relative;
+    top: -40px;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  .success-message {
+    background-color: #81d4fa;
+  }
+  .danger-message {
+    background-color: #ef9a9a;
+  }
+}
+
 header,
 footer {
   background-color: $main-color;

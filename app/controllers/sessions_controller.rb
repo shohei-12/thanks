@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       flash[:success] = 'ログインしました！'
       redirect_to @user
     else
-      flash.now[:danger] = '入力されたメールアドレスまたはパスワードに誤りがあります'
+      flash.now[:danger] = '入力されたメールアドレスまたはパスワードに誤りがあります。'
       render 'new'
     end
   end
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    flash[:success] = 'ログアウトしました'
+    flash[:success] = 'ログアウトしました！'
     redirect_to root_path
   end
 end
